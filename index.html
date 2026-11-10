@@ -1072,19 +1072,17 @@ void main(){
     addEventListener('pointermove',e=>{mouse[0]=(e.clientX-.5*innerWidth)/innerHeight; mouse[1]=(.5*innerHeight-e.clientY)/innerHeight;});
   })();
 
-  /* ---------- sound: looping music + recorded cue files; starts on the first interaction ---------- */
+  /* ---------- sound: looping music + three recorded cues (Openverse, CC0; see assets/audio/credits.txt); starts on the first interaction ---------- */
   const Snd=(()=>{
     const bgm=$('#bgm'); bgm.volume=0; const MV=.3;
-    const CUES={fwd:['forward',.4],back:['back',.4],hover:['hover',.14],press:['press',.28],snap:['snap',.36],lock:['lock',.55],drop:['drop',.5],
-      rise:['level-up',.5],champ:['achievement',.5],reward:['reward',.45],open:['expand',.28],close:['collapse',.24],on:['toggle-on',.4]};
-    const pool={}; let on=false, loaded=false, target=0, vol=0, raf=0, duckT=0, timers=[];
+    const CUES={whoosh:['whoosh',.3],deep:['deep',.34],impact:['impact',.3]};   // slide change, chapter change, two hero reveals; no UI sounds
+    const pool={}; let on=false, loaded=false, target=0, vol=0, raf=0, timers=[];
     function load(){ if(loaded) return; loaded=true; for(const k in CUES){const a=new Audio('assets/audio/sfx-'+CUES[k][0]+'.mp3'); a.preload='auto'; pool[k]=a;} }
     function ramp(){ vol+=(target-vol)*.07; if(Math.abs(target-vol)<.004) vol=target; bgm.volume=Math.max(0,Math.min(1,vol));
       if(vol!==target) raf=requestAnimationFrame(ramp); else {raf=0; if(vol===0&&!on) bgm.pause();} }
     function fade(v){target=v; if(!raf) raf=requestAnimationFrame(ramp);}
-    function duck(hold){ if(!on) return; fade(MV*.45); clearTimeout(duckT); duckT=setTimeout(()=>{if(on) fade(MV);},hold); }
     function now(k,rate){ if(!on||!pool[k]) return; const a=pool[k].cloneNode(); a.volume=CUES[k][1];
-      if(rate){a.preservesPitch=false; a.playbackRate=rate;} const p=a.play(); if(p&&p.catch) p.catch(()=>{}); if(CUES[k][1]>=.45) duck(900); }
+      if(rate){a.preservesPitch=false; a.playbackRate=rate;} const p=a.play(); if(p&&p.catch) p.catch(()=>{}); }
     function play(k,delay,rate){ if(!on) return; if(!delay) return now(k,rate); timers.push(setTimeout(()=>now(k,rate),delay)); }
     function cancel(){ timers.forEach(clearTimeout); timers=[]; }
     function set(v){ on=v; if(on){ load(); const p=bgm.play(); if(p&&p.catch) p.catch(()=>{}); fade(MV); } else { cancel(); fade(0); } }
@@ -1094,20 +1092,20 @@ void main(){
   const sbtn=$('#sound'); let soundPref=true;
   try{ if(localStorage.getItem('db-sound')==='off') soundPref=false; }catch(e){}
   const paintSound=()=>{ sbtn.setAttribute('aria-pressed',soundPref); sbtn.classList.toggle('playing',Snd.on); };
-  sbtn.addEventListener('click',()=>{ soundPref=!Snd.on; Snd.set(soundPref); if(soundPref) Snd.play('on');
+  sbtn.addEventListener('click',()=>{ soundPref=!Snd.on; Snd.set(soundPref);
     try{localStorage.setItem('db-sound',soundPref?'on':'off');}catch(e){} paintSound(); });
   const firstGesture=e=>{ if(e.target && e.target.closest && e.target.closest('#sound')) return;   // the button handles itself
     removeEventListener('pointerdown',firstGesture,true); removeEventListener('keydown',firstGesture,true);
     if(soundPref && !Snd.on){ Snd.set(true); paintSound(); } };
   addEventListener('pointerdown',firstGesture,true); addEventListener('keydown',firstGesture,true);
   paintSound();
+  let sndCh=null;
   function slideSound(s,dir){
-    Snd.cancel(); Snd.play(dir<0?'back':'fwd');
-    if(s.id==='manifesto'){ [.9,1,1.12,1.26].forEach((r,k)=>Snd.play('snap',760+k*140,r)); Snd.play('lock',1500); }
-    else if(s.id==='direbattle') Snd.play('rise',650);
-    else if(s.id==='record') Snd.play('champ',450);
-    else if(s.id==='cup') Snd.play('reward',400);
-    else if(s.id==='events'||s.id==='reach') Snd.play('drop',380);
+    const newCh=sndCh!==null && s.dataset.ch!==sndCh; sndCh=s.dataset.ch;
+    Snd.cancel();
+    if(newCh) Snd.play('deep'); else Snd.play('whoosh',0,dir<0?.86:1);   // deeper sweep into a new chapter; going back plays slightly lower
+    if(s.id==='manifesto') Snd.play('impact',1500);        // as the mark locks together
+    else if(s.id==='direbattle') Snd.play('impact',650);
   }
 
   /* ---------- slide navigator ---------- */
@@ -1122,12 +1120,10 @@ void main(){
     const nm=NAMES[sl.id]||[sl.id,sl.id];
     b.innerHTML=`<span class="n">${String(k+1).padStart(2,'0')}</span><span class="en">${nm[0]}</span><span class="id">${nm[1]}</span>`;
     b.addEventListener('click',()=>{go(k); setNav(false,false);});
-    b.addEventListener('pointerenter',()=>Snd.play('hover'));
     list.appendChild(b);
   });
   let pinned=false, navT=0;
   function setNav(open,pin){ const was=strip.classList.contains('open'); strip.classList.toggle('open',open); menu.setAttribute('aria-expanded',open); if(pin!==undefined) pinned=pin;
-    if(open!==was) Snd.play(open?'open':'close');
     if(open){const cur=list.children[i]; if(cur) cur.scrollIntoView({block:'nearest',inline:'center'});} }
   function markNav(){[...list.children].forEach((b,k)=>b.setAttribute('aria-current',k===i?'true':'false'));}
   menu.addEventListener('click',()=>{const o=!strip.classList.contains('open'); setNav(o,o);});
@@ -1189,7 +1185,7 @@ void main(){
     const dir=n<i?-1:1, first=!slides.some(s=>s.classList.contains('active'));
     slides[i].classList.remove('active'); i=n; const s=slides[i];
     void s.offsetWidth; s.classList.add('active'); s.scrollTop=0;
-    if(!first){ slideSound(s,dir); pulse=1; }
+    if(!first){ slideSound(s,dir); pulse=1; } else sndCh=s.dataset.ch;
     bar.style.width=((i+1)/slides.length*100)+'%';
     bar.style.background=s.dataset.ch==='2'?'var(--green)':'var(--red)';
     count.textContent=String(i+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');
@@ -1202,7 +1198,7 @@ void main(){
 
   $('#prev').addEventListener('click',()=>go(i-1));
   $('#next').addEventListener('click',()=>go(i+1));
-  $$('.lang .btn').forEach(b=>b.addEventListener('click',()=>{setLang(b.dataset.l); Snd.play('press');}));
+  $$('.lang .btn').forEach(b=>b.addEventListener('click',()=>{setLang(b.dataset.l);}));
   addEventListener('keydown',e=>{
     if(e.target.closest && e.target.closest('button') && (e.key===' '||e.key==='Enter')) return;
     if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(i+1);}

@@ -28,7 +28,9 @@ It is a company profile for prospective brand partners, not a priced sponsorship
   Do not reuse `data-n` for anything else (it once overwrote the roster photos).
 - Navigation: arrows / space / swipe, per-slide hash links (`#circuit`), `F` for fullscreen,
   slide navigator opens from the left part of the bottom bar or the "All slides" button.
-- Sound: `#bgm` music loop plus cue files in `assets/audio/sfx-*.mp3`, mapped in `slideSound()`.
+- Sound: `#bgm` music loop plus three cues in `assets/audio/`, mapped in `slideSound()`: `sfx-whoosh` on slide change,
+  `sfx-deep` instead when the chapter (`data-ch`) changes, `sfx-impact` on the manifesto and Dire Battle reveals.
+  No hover, click or navigator sounds. Sources and licences: `assets/audio/credits.txt`.
   On by default, starts on the first interaction, remembered in localStorage.
 
 ## Slides (17)
@@ -59,8 +61,8 @@ reach, content, production, roadmap, partner, contact
 ## Open items
 
 - Contact slide still has placeholders: `[Name · Phone]`, `[email]`.
-- Sound effects: owner finds them "weird". Current cues are UI sounds from the uisfx "cinematic" pack (CC0).
-  Options discussed: replace with owner-supplied files (e.g. from Openverse), or strip back to music + a soft whoosh.
+- Sound effects: the uisfx UI cues the owner found "weird" were removed (10 Nov 2026). Replaced by three recorded
+  sounds found through Openverse (Freesound, all CC0), trimmed and peak-normalized to -3 dB. Owner has not heard them yet.
 - Music `assets/audio/bgm.mp3` is an 88s loop cut from a lo-fi "timer" track; licence for public use unconfirmed.
 - Missing data: team counts for Mix Series and Showdown 1v1 Mid, Mix Series champion, EPL SEA 19 final opponent/score.
 - Not on slides yet: player roles, follower counts per platform, audience demographics.

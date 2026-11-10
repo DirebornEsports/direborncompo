@@ -1,0 +1,8 @@
+Sound effects — sourced via Openverse (https://openverse.org), all CC0 1.0. Trimmed, faded and peak-normalized.
+
+sfx-whoosh.mp3  "Whoosh #1" by Kinoton is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.
+                https://freesound.org/people/Kinoton/sounds/427823
+sfx-deep.mp3    "Deep Whoosh #1" by Kinoton is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.
+                https://freesound.org/people/Kinoton/sounds/351256
+sfx-impact.mp3  "Cinematic Impact" by Rizzard is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.
+                https://freesound.org/people/Rizzard/sounds/559387
