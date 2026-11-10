@@ -394,6 +394,8 @@ tr.soon td{color:var(--mute)}
 #sound[aria-pressed="true"] .eq i:nth-child(2){animation-delay:-.4s}
 #sound[aria-pressed="true"] .eq i:nth-child(3){animation-delay:-.7s}
 @keyframes eq{0%,100%{height:3px}50%{height:11px}}
+#sound.waiting{animation:wait 1.6s ease-in-out infinite}
+@keyframes wait{50%{border-color:var(--gold);box-shadow:0 0 0 4px rgba(199,162,70,.15)}}
 
 /* chapter mark that stays in the corner and morphs between slides */
 .chmark{position:absolute;z-index:3;top:calc(var(--gut) + 30px);right:max(var(--gut),env(safe-area-inset-right,0px));width:clamp(30px,2.6vw,44px);height:auto;max-width:none;pointer-events:none}
@@ -512,6 +514,7 @@ tr.soon td{color:var(--mute)}
 
 
 <canvas id="fx" aria-hidden="true"></canvas>
+<audio id="bgm" src="assets/audio/bgm.mp3" loop preload="auto"></audio>
 <div class="bar" id="bar"></div>
 <div class="brand mono" aria-hidden="true">
   <span>Direborn Esports</span>
@@ -983,21 +986,23 @@ tr.soon td{color:var(--mute)}
 
   /* ---- sound: looping music + sound design synthesised live (Web Audio), off until the viewer turns it on ---- */
   const Snd=(()=>{
-    let ctx=null, music, sfx, bgm, nb, on=false; const MV=.32;
+    let ctx=null, sfx, nb, on=false; const MV=.32;
+    const bgm=document.getElementById('bgm'); bgm.volume=0;
+    let target=0, vol=0, raf2=0;
+    function ramp(){ vol+= (target-vol)*.06; if(Math.abs(target-vol)<.003) vol=target; bgm.volume=Math.max(0,Math.min(1,vol));
+      if(vol!==target) raf2=requestAnimationFrame(ramp); else raf2=0; if(vol===0 && !on) bgm.pause(); }
+    function fade(v){ target=v; if(!raf2) raf2=requestAnimationFrame(ramp); }
     function init(){
       if(ctx) return;
       ctx=new (window.AudioContext||window.webkitAudioContext)();
       const comp=ctx.createDynamicsCompressor(); comp.threshold.value=-16; comp.ratio.value=3; comp.connect(ctx.destination);
-      music=ctx.createGain(); music.gain.value=0; music.connect(comp);
       sfx=ctx.createGain(); sfx.gain.value=.85; sfx.connect(comp);
-      bgm=new Audio('assets/audio/bgm.mp3'); bgm.loop=true; bgm.preload='auto';
-      ctx.createMediaElementSource(bgm).connect(music);
       nb=ctx.createBuffer(1,ctx.sampleRate*2,ctx.sampleRate); const d=nb.getChannelData(0); for(let k=0;k<d.length;k++) d[k]=Math.random()*2-1;
     }
     const T=()=>ctx.currentTime;
     function amp(t,a,peak,dec){const g=ctx.createGain(); g.gain.setValueAtTime(.0001,t); g.gain.exponentialRampToValueAtTime(peak,t+a); g.gain.exponentialRampToValueAtTime(.0001,t+a+dec); return g;}
     function noise(t,dur){const s=ctx.createBufferSource(); s.buffer=nb; s.start(t); s.stop(t+dur+.05); return s;}
-    function duck(t,depth,hold){const g=music.gain; g.cancelScheduledValues(t); g.setValueAtTime(g.value,t); g.linearRampToValueAtTime(MV*depth,t+.06); g.linearRampToValueAtTime(MV,t+hold+.6);}
+    let duckT=0; function duck(t,depth,hold){ const ms=Math.max(0,(t-T())*1000); setTimeout(()=>{ if(!on) return; fade(MV*depth); clearTimeout(duckT); duckT=setTimeout(()=>{ if(on) fade(MV); },hold*1000+200); },ms); }
     function pan(v){const p=ctx.createStereoPanner?ctx.createStereoPanner():null; if(p) p.pan.value=v; return p;}
     function out(node,p){ if(p){node.connect(p);p.connect(sfx);} else node.connect(sfx); }
 
@@ -1029,15 +1034,22 @@ tr.soon td{color:var(--mute)}
       [587,659,784,880,1046].forEach((f,k)=>bell(t+.25+k*.18,f*2,.04,1.4)); hit(t+1.55,.7); duck(t,.4,1.8);}
     function tick(){const t=T(); const o=ctx.createOscillator(); o.frequency.value=2200; const g=amp(t,.001,.05,.04); o.connect(g); out(g); o.start(t); o.stop(t+.08);}
 
-    function set(v){ on=v; if(on){ init(); ctx.resume(); const p=bgm.play(); if(p&&p.catch)p.catch(()=>{});
-        music.gain.cancelScheduledValues(T()); music.gain.setValueAtTime(music.gain.value,T()); music.gain.linearRampToValueAtTime(MV,T()+2); }
-      else if(ctx){ music.gain.cancelScheduledValues(T()); music.gain.setValueAtTime(music.gain.value,T()); music.gain.linearRampToValueAtTime(0,T()+.6); setTimeout(()=>{ if(!on) bgm.pause(); },700); } }
-    document.addEventListener('visibilitychange',()=>{ if(!ctx||!on) return; if(document.hidden){ bgm.pause(); ctx.suspend(); } else { ctx.resume(); bgm.play().catch(()=>{}); } });
+    function set(v){ on=v;
+      if(on){ try{ init(); ctx.resume(); }catch(e){}
+        const p=bgm.play(); if(p&&p.catch) p.catch(()=>{}); fade(MV); }
+      else fade(0); }
+    document.addEventListener('visibilitychange',()=>{ if(!on) return; if(document.hidden){ bgm.pause(); if(ctx) ctx.suspend(); } else { if(ctx) ctx.resume(); bgm.play().catch(()=>{}); } });
     const live=fn=>(...a)=>{ if(on&&ctx) fn(...a); };
-    return {set, get on(){return on;}, whoosh:live(whoosh), hit:live(t=>hit(T()+(t||0))), assemble:live(assemble), beam:live(beam), tick:live(tick)};
+    return {set, get on(){return on;}, get started(){return !!ctx;}, whoosh:live(whoosh), hit:live(t=>hit(T()+(t||0))), assemble:live(assemble), beam:live(beam), tick:live(tick)};
   })();
-  const sbtn=document.getElementById('sound');
-  sbtn.addEventListener('click',()=>{ const v=!Snd.on; Snd.set(v); sbtn.setAttribute('aria-pressed',v); if(v) Snd.tick(); });
+  const sbtn=document.getElementById('sound'); let soundPref=true;
+  try{ if(localStorage.getItem('db-sound')==='off') soundPref=false; }catch(e){}
+  sbtn.setAttribute('aria-pressed',soundPref); sbtn.classList.toggle('waiting',soundPref);
+  sbtn.addEventListener('click',e=>{ e.stopPropagation(); const v=!(Snd.on); soundPref=v; Snd.set(v); sbtn.classList.remove('waiting');
+    sbtn.setAttribute('aria-pressed',v); try{localStorage.setItem('db-sound',v?'on':'off');}catch(e){} if(v) Snd.tick(); });
+  const firstGesture=()=>{ removeEventListener('pointerdown',firstGesture,true); removeEventListener('keydown',firstGesture,true);
+    if(soundPref && !Snd.on){ Snd.set(true); sbtn.classList.remove('waiting'); } };
+  addEventListener('pointerdown',firstGesture,true); addEventListener('keydown',firstGesture,true);
   /* which slides get which cue when they open */
   const SLAM={record:.25, events:.3, cup:.3, reach:.3};
   function slideSound(s,dir){
