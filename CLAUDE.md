@@ -71,7 +71,7 @@ reach, content, production, roadmap, partner, contact
 - Sound effects: the uisfx UI cues the owner found "weird" were removed (10 Nov 2026). Replaced by three recorded
   sounds found through Openverse (Freesound, all CC0), trimmed and peak-normalized to -3 dB. Owner has not heard them yet.
 - Music `assets/audio/bgm.mp3` is an 88s loop cut from a lo-fi "timer" track; licence for public use unconfirmed.
-- Mix Series: 16 teams, champion Faceless Void. Showdown 1v1 Mid: 8 entrants (owner, 10 Nov 2026).
+- Mix Series: 8 teams, champion Faceless Void. Showdown 1v1 Mid: 8 entrants (owner, 10 Nov 2026).
 - Missing data: EPL SEA 19 final opponent/score.
 - Not on slides yet: player roles, follower counts per platform, audience demographics.
 - Motion and audio have been syntax-checked and screenshot-tested (1440x810, iPhone 13 390x844, 844x390 landscape,
