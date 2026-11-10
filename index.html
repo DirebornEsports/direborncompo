@@ -46,7 +46,7 @@ body{background:var(--ink);color:var(--bone);font-family:var(--f-body);font-size
 h1,h2,h3{font-family:var(--f-display);font-weight:700;line-height:.98;margin:0;text-wrap:balance;letter-spacing:-.01em}
 p{margin:0}
 .mono{font-family:var(--f-mono);font-size:var(--s-xs);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
-[data-lang="en"] .id,[data-lang="id"] .en{display:none!important}
+[data-lang="en"] .id,[data-lang="id"] .en,html[lang="en"] .chrome .id,html[lang="id"] .chrome .en,html[lang="en"] .navstrip .id,html[lang="id"] .navstrip .en{display:none!important}
 
 /* ---------- deck shell ---------- */
 .deck{position:relative;height:100%;width:100%;overflow:hidden}
@@ -150,7 +150,9 @@ p{margin:0}
   background:linear-gradient(180deg,transparent 30%,rgba(218,33,48,.16));border-bottom:1px solid var(--line);overflow:hidden}
 .player .ph::before{content:attr(data-idx);position:absolute;top:8px;left:10px;font-family:var(--f-mono);font-size:var(--s-xs);color:var(--mute)}
 .player img{height:100%;width:auto;max-width:120%;object-fit:contain;object-position:bottom;transition:transform .6s cubic-bezier(.2,.7,.1,1);filter:drop-shadow(0 18px 30px rgba(0,0,0,.6))}
-.player:hover img{transform:scale(1.04)}
+.player:hover img{scale:1.04}
+.player .ph{display:block;-webkit-mask-image:linear-gradient(180deg,#000 75%,transparent);mask-image:linear-gradient(180deg,#000 75%,transparent)}
+.player .ph img{position:absolute;top:6%;left:50%;translate:var(--x,-50%) 0;height:var(--h,140%);width:auto;max-width:none;object-fit:contain;object-position:top;transition:scale .6s cubic-bezier(.2,.7,.1,1);transform-origin:top center}
 .player .nm{padding-top:12px;display:grid;gap:2px}
 .player .nm b{font-family:var(--f-display);font-size:clamp(18px,1.9vw,30px);font-weight:700;line-height:1}
 .slide.active .player{animation:rise .9s cubic-bezier(.2,.7,.1,1) both;animation-delay:calc(var(--d) * 110ms + 150ms)}
@@ -369,6 +371,23 @@ tr.soon td{color:var(--mute)}
 .deck{z-index:1}
 .s-cover video,.s-cover .poster{z-index:0}
 
+/* slide navigator: appears when the cursor reaches the bottom edge */
+.navstrip{position:fixed;left:0;right:0;bottom:calc(58px + env(safe-area-inset-bottom,0px));z-index:22;pointer-events:none;opacity:0;transform:translateY(16px);transition:opacity .35s ease,transform .45s cubic-bezier(.2,.7,.1,1)}
+.navstrip.open{opacity:1;transform:none;pointer-events:auto}
+.ns-list{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:14px max(var(--gut),env(safe-area-inset-right,0px)) 14px max(var(--gut),env(safe-area-inset-left,0px));
+  background:linear-gradient(transparent,rgba(12,9,8,.92) 30%)}
+.ns-list::-webkit-scrollbar{display:none}
+.ns-item{flex:none;display:grid;gap:6px;align-content:start;text-align:left;cursor:pointer;width:clamp(96px,8.6vw,132px);min-height:62px;padding:10px 10px 9px;
+  background:rgba(23,17,15,.9);border:1px solid var(--line);border-top:2px solid var(--c,var(--red));color:var(--bone);font:600 13px/1.15 var(--f-display);
+  transition:background .2s,transform .25s cubic-bezier(.2,.7,.1,1)}
+.ns-item .n{font:400 10px/1 var(--f-mono);letter-spacing:.1em;color:var(--mute)}
+.ns-item:hover{transform:translateY(-4px);background:#241a17}
+.ns-item[aria-current="true"]{background:var(--bone);color:var(--ink)}
+.ns-item[aria-current="true"] .n{color:var(--ink)}
+.ns-item:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.navstrip.open .ns-item{animation:rise .45s cubic-bezier(.2,.7,.1,1) backwards;animation-delay:calc(var(--k) * 18ms)}
+#menu[aria-expanded="true"]{background:var(--bone);color:var(--ink)}
+
 /* chapter mark that stays in the corner and morphs between slides */
 .chmark{position:absolute;z-index:3;top:calc(var(--gut) + 30px);right:max(var(--gut),env(safe-area-inset-right,0px));width:clamp(30px,2.6vw,44px);height:auto;max-width:none;pointer-events:none}
 
@@ -582,11 +601,11 @@ tr.soon td{color:var(--mute)}
   <div class="inner">
     <div class="eyebrow mono rv"><b>03</b><span class="en">The roster</span><span class="id">Roster</span></div>
     <div class="roster">
-      <div class="player" style="--d:0"><div class="ph" data-idx="01"><img src="assets/dreamocel.webp" alt="Dreamocel"></div><div class="nm"><b>Dreamocel</b><span class="mono">Randy Sapoetra</span></div></div>
-      <div class="player" style="--d:1"><div class="ph" data-idx="02"><img src="assets/womy.webp" alt="woMy"></div><div class="nm"><b>woMy</b><span class="mono">Said Romy</span></div></div>
-      <div class="player" style="--d:2"><div class="ph" data-idx="03"><img src="assets/potat2.webp" alt="PotaT2"></div><div class="nm"><b>PotaT2</b><span class="mono">Noel Pinot</span></div></div>
-      <div class="player" style="--d:3"><div class="ph" data-idx="04"><img src="assets/db.webp" alt="db-"></div><div class="nm"><b>db-</b><span class="mono">Daud Budiawan</span></div></div>
-      <div class="player" style="--d:4"><div class="ph" data-idx="05"><img src="assets/dalul.webp" alt="dalul"></div><div class="nm"><b>dalul</b><span class="mono">Abdalla Putra Afemi</span></div></div>
+      <div class="player" style="--d:0"><div class="ph" data-idx="01" style="--h:143%"><img src="assets/dreamocel.webp" alt="Dreamocel"></div><div class="nm"><b>Dreamocel</b><span class="mono">Randy Sapoetra</span></div></div>
+      <div class="player" style="--d:1"><div class="ph" data-idx="02" style="--h:167%"><img src="assets/womy.webp" alt="woMy"></div><div class="nm"><b>woMy</b><span class="mono">Said Romy</span></div></div>
+      <div class="player" style="--d:2"><div class="ph" data-idx="03" style="--h:160%"><img src="assets/potat2.webp" alt="PotaT2"></div><div class="nm"><b>PotaT2</b><span class="mono">Noel Pinot</span></div></div>
+      <div class="player" style="--d:3"><div class="ph" data-idx="04" style="--h:120%"><img src="assets/dalul.webp" alt="db-"></div><div class="nm"><b>db-</b><span class="mono">Daud Budiawan</span></div></div>
+      <div class="player" style="--d:4"><div class="ph" data-idx="05" style="--h:118%;--x:-46%"><img src="assets/db.webp" alt="dalul"></div><div class="nm"><b>dalul</b><span class="mono">Abdalla Putra Afemi</span></div></div>
     </div>
   </div>
 </section>
@@ -901,12 +920,14 @@ tr.soon td{color:var(--mute)}
 
 </main>
 
+<div class="navstrip" id="navstrip" aria-label="All slides"><div class="ns-list" id="nsList"></div></div>
 <nav class="chrome" aria-label="Slide controls">
   <span class="mono sec" id="sec"></span>
   <div class="lang" role="group" aria-label="Language">
     <button class="btn" type="button" id="lang-en" data-l="en" aria-pressed="true">EN</button>
     <button class="btn" type="button" id="lang-id" data-l="id" aria-pressed="false">ID</button>
   </div>
+  <button class="btn" type="button" id="menu" aria-expanded="false" aria-controls="navstrip"><span class="en">All slides</span><span class="id">Semua slide</span></button>
   <span class="mono count" id="count">01 / 17</span>
   <button class="btn" type="button" id="prev" aria-label="Previous slide">←</button>
   <button class="btn" type="button" id="next" aria-label="Next slide">→</button>
@@ -952,6 +973,31 @@ tr.soon td{color:var(--mute)}
       shards.style.transform=`rotateY(${x*16}deg) rotateX(${-y*12}deg)`;});
     man.addEventListener('pointerleave',()=>shards.style.transform='');
   }
+
+  /* ---- slide navigator ---- */
+  const NAMES={cover:['Cover','Sampul'],manifesto:['Manifesto','Manifesto'],who:['Who we are','Siapa kami'],engines:['Two engines','Dua mesin'],
+    roster:['Roster','Roster'],record:['Track record','Rekam jejak'],direbattle:['Dire Battle','Dire Battle'],circuit:['Pro Circuit','Pro Circuit'],
+    events:["What we've run",'Event kami'],cup:['Dire Battle Cup','Dire Battle Cup'],uprising:['Uprising','Uprising'],reach:['Audience','Audiens'],
+    content:['Our content','Konten kami'],production:['Production','Produksi'],roadmap:['Roadmap','Arah kami'],partner:['Partner with us','Kerja sama'],contact:['Contact','Kontak']};
+  const strip=document.getElementById('navstrip'), list=document.getElementById('nsList'), menu=document.getElementById('menu');
+  slides.forEach((sl,k)=>{
+    const b=document.createElement('button'); b.type='button'; b.className='ns-item'; b.style.setProperty('--k',k);
+    if(sl.dataset.ch==='2') b.style.setProperty('--c','var(--green)'); else if(sl.dataset.ch==='0') b.style.setProperty('--c','var(--gold)');
+    const nm=NAMES[sl.id]||[sl.id,sl.id];
+    b.innerHTML=`<span class="n">${String(k+1).padStart(2,'0')}</span><span class="en">${nm[0]}</span><span class="id">${nm[1]}</span>`;
+    b.addEventListener('click',()=>{go(k); setNav(false,false);});
+    list.appendChild(b);
+  });
+  let pinned=false;
+  function setNav(open,pin){ strip.classList.toggle('open',open); menu.setAttribute('aria-expanded',open); if(pin!==undefined) pinned=pin;
+    if(open){const cur=list.children[i]; if(cur) cur.scrollIntoView({block:'nearest',inline:'center'});} }
+  function markNav(){[...list.children].forEach((b,k)=>b.setAttribute('aria-current',k===i?'true':'false'));}
+  menu.addEventListener('click',()=>{const o=!strip.classList.contains('open'); setNav(o,o);});
+  addEventListener('mousemove',e=>{ if(pinned) return;
+    const y=innerHeight-e.clientY;
+    if(y<90) { if(!strip.classList.contains('open')) setNav(true); }
+    else if(y>230 && !strip.matches(':hover')) setNav(false); });
+  document.addEventListener('mouseleave',()=>{ if(!pinned) setNav(false); });
 
   /* ---- split headline words so they can rise out of a mask ---- */
   function splitWords(el){
@@ -1037,7 +1083,7 @@ tr.soon td{color:var(--mute)}
     bar.style.width=((i+1)/slides.length*100)+'%';
     bar.style.background=s.dataset.ch==='2'?'var(--green)':'var(--red)';
     count.textContent=String(i+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');
-    label();
+    label(); markNav();
     countUp(s);
     if(vid){ if(s.id==='cover'){const p=vid.play(); if(p&&p.catch)p.catch(()=>{});} else vid.pause(); }
     cancelAnimationFrame(raf); raf=0; if(s.querySelector('canvas[data-lines]')) raf=requestAnimationFrame(draw);
@@ -1052,6 +1098,7 @@ tr.soon td{color:var(--mute)}
     if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(i+1);}
     else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(i-1);}
     else if(e.key==='Home')go(0); else if(e.key==='End')go(slides.length-1);
+    else if(e.key==='Escape') setNav(false,false);
   });
   /* swipe (horizontal only, so vertical scrolling inside a slide still works on phones) */
   let sx=0,sy=0; deck.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
