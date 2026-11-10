@@ -16,7 +16,10 @@ It is a company profile for prospective brand partners, not a priced sponsorship
 - Every slide is a `<section class="slide">` holding a fixed 16:9 stage `.st` (100rem x 56.25rem).
   `html{font-size:min(1vw,1.7778vh)}`, so **1rem = 1% of stage width** and everything scales like a real deck.
   Size things in rem; small text uses `max(px, rem)` floors.
-- Phones / portrait (`max-width:820px` or portrait aspect): slides stack and scroll; see the media query.
+- Phones, tablets in portrait and landscape phones (`max-width:820px`, portrait aspect, or `max-height:500px`):
+  slides stack and scroll. One compact bottom bar (icon buttons for sound and the slide list, 42px targets);
+  the slide list opens as a 3-column sheet; the events table turns into stacked cards (cells carry `data-th`
+  labels set by `labelCells()`); the progress rail, ghost numbers and parallax are off.
 - Each slide has, at the same stage position: an eyebrow label, a headline, a corner chapter mark.
   These carry `data-vt="eyebrow|title|mark|dbmark"` and are morphed between slides with the
   View Transitions API (`go()` in the script). Elements shared by both slides get class `vt-on`,
@@ -70,7 +73,8 @@ reach, content, production, roadmap, partner, contact
 - Music `assets/audio/bgm.mp3` is an 88s loop cut from a lo-fi "timer" track; licence for public use unconfirmed.
 - Missing data: team counts for Mix Series and Showdown 1v1 Mid, Mix Series champion, EPL SEA 19 final opponent/score.
 - Not on slides yet: player roles, follower counts per platform, audience demographics.
-- Motion and audio have been syntax-checked and screenshot-tested (1440x810 and 390x844) but not watched or heard.
+- Motion and audio have been syntax-checked and screenshot-tested (1440x810, iPhone 13 390x844, 844x390 landscape,
+  820x1180 tablet) but not watched or heard on a real device.
 
 ## Testing
 
