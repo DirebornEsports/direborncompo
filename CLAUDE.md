@@ -26,8 +26,12 @@ It is a company profile for prospective brand partners, not a priced sponsorship
 - Language: `<span class="en">` / `<span class="id">` pairs, toggled by `html[lang]`.
   Numbers use `data-n` (static), `data-count` (count-up), `data-m` (month) and are formatted per locale.
   Do not reuse `data-n` for anything else (it once overwrote the roster photos).
-- Navigation: arrows / space / swipe, per-slide hash links (`#circuit`), `F` for fullscreen,
-  slide navigator opens from the left part of the bottom bar or the "All slides" button.
+- Navigation: arrows / space / swipe, per-slide hash links (`#circuit`), `F` for fullscreen.
+  Bottom bar has a progress rail (`#segs`, one clickable segment per slide, grouped by chapter); the slide navigator
+  opens only from the "All slides" button (hover-to-open was removed).
+- Depth and motion: `.st[data-no]::after` is the ghost slide number; `--mx/--my` on `.deck` drive cursor parallax;
+  `--dx` (1 forward, -1 back) makes entrances travel in the direction of navigation; `.way` cards tilt (`.tilt`);
+  posters in `.strip` open in `#lightbox`.
 - Sound: `#bgm` music loop plus three cues in `assets/audio/`, mapped in `slideSound()`: `sfx-whoosh` on slide change,
   `sfx-deep` instead when the chapter (`data-ch`) changes, `sfx-impact` on the manifesto and Dire Battle reveals.
   No hover, click or navigator sounds. Sources and licences: `assets/audio/credits.txt`.

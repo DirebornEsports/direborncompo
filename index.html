@@ -83,7 +83,7 @@ body.nogl{background:radial-gradient(70% 80% at 20% 100%,rgba(218,33,48,.16),tra
 .brand .tc{font-variant-numeric:tabular-nums}
 .chrome{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;align-items:center;gap:.9rem;padding:1.2rem var(--gx) calc(1.2rem + env(safe-area-inset-bottom,0px));
   background:linear-gradient(transparent,rgba(12,9,8,.88) 50%);view-transition-name:chrome}
-.chrome .sec{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chrome .sec{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .chrome .count{font-variant-numeric:tabular-nums;color:var(--bone);padding:0 .3rem}
 .btn{font:500 var(--t-label)/1 var(--f-mono);letter-spacing:.09em;text-transform:uppercase;color:var(--bone);background:rgba(12,9,8,.5);border:1px solid var(--line);
   height:max(32px,2.3rem);min-width:max(32px,2.3rem);padding:0 .9rem;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;transition:border-color .2s,background .2s,color .2s}
@@ -339,7 +339,6 @@ tr.soon td{color:var(--mute)}
 
 /* =================== MOTION =================== */
 .slide.active .rv{animation:rise .9s var(--ease) both;animation-delay:calc(var(--d,0) * 90ms + 160ms)}
-@keyframes rise{from{opacity:0;transform:translateY(1.6rem)}}
 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-bottom:-.12em}
 .w>span{display:inline-block}
 .slide.active .w>span{animation:wordUp 1s var(--ease) backwards;animation-delay:calc(var(--wi) * 55ms + 240ms)}
@@ -400,6 +399,87 @@ tr.soon td{color:var(--mute)}
 .slide.active .way{animation:flip .9s var(--ease) backwards;animation-delay:calc(var(--d) * 110ms + 250ms)}
 @keyframes flip{from{transform:rotateX(-80deg) translateY(3rem);opacity:0;transform-origin:bottom}}
 
+
+/* =================== MAKEOVER LAYER =================== */
+.slide{overflow:hidden}
+/* depth: a giant outlined slide number sits behind the content and drifts against the cursor */
+.st[data-no]::after{content:attr(data-no);position:absolute;right:3.6rem;bottom:2.6rem;z-index:-1;pointer-events:none;
+  font:700 24rem/.78 var(--f-display);letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1px rgba(239,232,227,.055);
+  translate:calc(var(--mx,0) * -1.6rem) calc(var(--my,0) * -1rem)}
+.slide.active .st[data-no]::after{animation:ghostIn 1.6s var(--ease) backwards}
+@keyframes ghostIn{from{opacity:0;transform:translateX(calc(var(--dx,1) * 10rem))}}
+/* layers answer the cursor at different depths */
+.who figure,.cup .poster,.shots,.up-poster,.extrude{translate:calc(var(--mx,0) * .9rem) calc(var(--my,0) * .6rem)}
+.ghost-wm{translate:calc(var(--mx,0) * -2rem) -50%}
+.who figure img,.cup .poster img{translate:calc(var(--mx,0) * -1.2rem) calc(var(--my,0) * -.8rem);scale:1.08}
+.chmark{translate:calc(var(--mx,0) * -.3rem) calc(var(--my,0) * -.2rem)}
+/* entrances travel in the direction you are moving through the deck */
+@keyframes rise{from{opacity:0;transform:translate(calc(var(--dx,1) * 2.6rem),.8rem)}}
+.eyebrow::before{transform-origin:left}
+.slide.active .eyebrow::before{animation:draw .9s var(--snap) .1s backwards}
+
+/* progress rail: one segment per slide, grouped by chapter, click to jump */
+.bar{display:none}
+.rail{flex:1;min-width:0;display:flex;align-items:center;gap:.9rem}
+.rail .sec{flex:none;min-width:9.5rem}
+.segs{display:flex;gap:.25rem;align-items:center;flex:1;max-width:34rem}
+.seg{position:relative;flex:1;height:max(32px,2.3rem);padding:0;border:0;background:none;cursor:pointer}
+.seg.gap{margin-left:.7rem}
+.seg::before{content:"";position:absolute;left:0;right:0;top:50%;height:3px;translate:0 -50%;background:rgba(239,232,227,.16);transition:background .3s,height .25s var(--ease)}
+.seg.past::before{background:rgba(239,232,227,.5)}
+.seg[aria-current="true"]::before{background:var(--c,var(--red));height:7px;box-shadow:0 0 1rem var(--c,var(--red))}
+.seg:hover::before{height:9px;background:var(--bone)}
+.seg::after{content:attr(data-name);position:absolute;left:50%;bottom:100%;translate:-50% .3rem;white-space:nowrap;pointer-events:none;opacity:0;
+  font:500 var(--t-label)/1 var(--f-mono);letter-spacing:.09em;text-transform:uppercase;color:var(--ink);background:var(--bone);padding:.45rem .6rem;transition:opacity .2s,translate .25s var(--ease)}
+.seg:hover::after,.seg:focus-visible::after{opacity:1;translate:-50% -.2rem}
+.seg:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
+#next{background:var(--bone);color:var(--ink);border-color:var(--bone);min-width:max(48px,3.6rem)}
+#next:hover{background:#fff}
+.btn:active{transform:scale(.94)}
+
+/* cards tilt toward the cursor and catch a moving highlight */
+.tilt{transform:perspective(60rem) rotateX(calc(var(--ty,0) * -7deg)) rotateY(calc(var(--tx,0) * 9deg));transition:transform .5s var(--ease),background .3s,border-color .3s}
+.tilt:hover{transition:transform .08s linear,background .3s,border-color .3s}
+.way{position:relative;overflow:hidden}
+.way::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(18rem circle at calc(50% + var(--tx,0) * 100%) calc(50% + var(--ty,0) * 100%),rgba(239,232,227,.14),transparent 60%)}
+.way:hover::after{opacity:1}
+.way:hover{transform:perspective(60rem) rotateX(calc(var(--ty,0) * -7deg)) rotateY(calc(var(--tx,0) * 9deg)) translateY(-.6rem)}
+
+/* roadmap and circuit fill the stage */
+.road{gap:.3rem}
+.step{background:var(--ash);padding:2.6rem 1.6rem 2rem;min-height:24rem;transition:background .3s}
+.step:hover{background:rgba(52,36,31,.9)}
+.step::after{left:1.6rem;top:-.42rem}
+.step .no{font-size:7.4rem}
+.step h3{font-size:2.1rem}
+.step:hover .no{-webkit-text-stroke-color:var(--gold)}
+.stage .no{font-size:5.6rem;transition:-webkit-text-stroke-color .3s}
+.stage:hover .no{-webkit-text-stroke-color:var(--gold)}
+.stage h3{font-size:2.3rem}
+/* table and roster respond */
+tbody tr{transition:background .2s}
+tbody tr:hover{background:rgba(239,232,227,.05)}
+.ph::before{transition:color .3s}
+.player:hover .ph::before{color:var(--red)}
+.player .nm b{transition:color .3s,letter-spacing .4s var(--ease)}
+.player:hover .nm b{color:var(--red);letter-spacing:.02em}
+.kgrid div:not(.lead):hover .num{color:var(--c)}
+.strip img{cursor:zoom-in}
+/* poster lightbox */
+.lightbox{position:fixed;inset:0;z-index:50;display:grid;place-items:center;background:rgba(12,9,8,.9);opacity:0;pointer-events:none;transition:opacity .3s;cursor:zoom-out}
+.lightbox.open{opacity:1;pointer-events:auto}
+.lightbox img{max-height:86vh;max-width:90vw;width:auto;height:auto;box-shadow:0 3rem 6rem rgba(0,0,0,.7);transform:scale(.92);transition:transform .45s var(--ease)}
+.lightbox.open img{transform:none}
+@media (max-width:820px),(max-aspect-ratio:1/1){
+  .slide{overflow-x:hidden;overflow-y:auto}
+  .st[data-no]::after,.segs{display:none}
+  .rail{flex:none}
+  .step{min-height:0;padding:0 0 1.4rem 1.8rem;background:none}
+  .step::after{left:0;top:.1rem}
+  .who figure,.cup .poster,.shots,.up-poster,.extrude,.who figure img,.cup .poster img,.chmark{translate:none}
+}
+
 /* seamless slide changes: shared elements glide, the rest dissolves */
 .deck.vt .slide{transition:none}
 .vt-on,.vt-on *{animation:none!important}
@@ -425,7 +505,7 @@ tr.soon td{color:var(--mute)}
     padding:4.4rem max(16px,env(safe-area-inset-right,0px)) 7rem max(16px,env(safe-area-inset-left,0px))}
   .body{justify-content:flex-start;gap:1.6rem}
   .chmark{top:3.6rem;right:max(16px,env(safe-area-inset-right,0px));width:1.7rem}
-  .chrome .sec,.hint,.ghost-wm,.sweep{display:none}
+  .hint,.ghost-wm,.sweep{display:none}
   .chrome{justify-content:flex-end;gap:.5rem;flex-wrap:wrap}
   .s-cover .st,.s-dbhero .st{padding-bottom:8rem}
   .wm{width:100%}
@@ -951,8 +1031,9 @@ tr.soon td{color:var(--mute)}
 </main>
 
 <div class="navstrip" id="navstrip" aria-label="All slides"><div class="ns-list" id="nsList"></div></div>
+<div class="lightbox" id="lightbox" aria-hidden="true"><img alt=""></div>
 <nav class="chrome" aria-label="Slide controls">
-  <span class="mono sec" id="sec"></span>
+  <div class="rail"><span class="mono sec" id="sec"></span><div class="segs" id="segs"></div></div>
   <button class="btn" type="button" id="sound" aria-pressed="true"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><span class="en">Sound</span><span class="id">Suara</span></button>
   <div class="lang" role="group" aria-label="Language">
     <button class="btn" type="button" id="lang-en" data-l="en" aria-pressed="true">EN</button>
@@ -991,7 +1072,7 @@ tr.soon td{color:var(--mute)}
   function setLang(l){lang=l;document.documentElement.lang=l;
     $$('.lang .btn').forEach(b=>b.setAttribute('aria-pressed',b.dataset.l===l));
     try{localStorage.setItem('db-lang',l);}catch(e){}
-    paintStatic(); label();}
+    paintStatic(); label(); if(typeof paintRail==='function'&&segs.children.length) paintRail();}
   function label(){sec.textContent=slides[i].dataset['sec'+(lang==='id'?'Id':'En')]||'';}
 
   /* ---------- headline words rise out of a mask ---------- */
@@ -1127,12 +1208,33 @@ void main(){
     if(open){const cur=list.children[i]; if(cur) cur.scrollIntoView({block:'nearest',inline:'center'});} }
   function markNav(){[...list.children].forEach((b,k)=>b.setAttribute('aria-current',k===i?'true':'false'));}
   menu.addEventListener('click',()=>{const o=!strip.classList.contains('open'); setNav(o,o);});
-  /* opens only from the empty left part of the bottom bar, after a short rest, so reaching for the buttons never pops it up */
-  addEventListener('mousemove',e=>{ if(pinned) return;
-    const y=innerHeight-e.clientY, edge=sbtn.getBoundingClientRect().left-60, inZone=y<70 && e.clientX<edge;
-    if(inZone){ if(!strip.classList.contains('open') && !navT) navT=setTimeout(()=>{navT=0;setNav(true);},250); }
-    else { clearTimeout(navT); navT=0; if((y>260 || (e.clientX>=edge && y<70)) && !strip.matches(':hover') && strip.classList.contains('open')) setNav(false); } });
-  document.addEventListener('mouseleave',()=>{ clearTimeout(navT); navT=0; if(!pinned && strip.classList.contains('open')) setNav(false); });
+  /* ---------- progress rail ---------- */
+  const segs=$('#segs');
+  slides.forEach((sl,k)=>{
+    const b=document.createElement('button'); b.type='button'; b.className='seg'+(k&&sl.dataset.ch!==slides[k-1].dataset.ch?' gap':'');
+    b.style.setProperty('--c',sl.dataset.ch==='2'?'var(--green)':'var(--red)');
+    b.addEventListener('click',()=>go(k)); segs.appendChild(b);
+  });
+  function paintRail(){[...segs.children].forEach((b,k)=>{ const nm=NAMES[slides[k].id]||['','']; const t=nm[lang==='id'?1:0];
+    b.dataset.name=String(k+1).padStart(2,'0')+' · '+t; b.setAttribute('aria-label',t);
+    b.classList.toggle('past',k<i); b.setAttribute('aria-current',k===i?'true':'false');});}
+
+  /* ---------- depth: slide numbers behind the content, layers follow the cursor ---------- */
+  slides.forEach(sl=>{const b=$('.eyebrow b',sl); if(b) $('.st',sl).dataset.no=b.textContent;});
+  if(!reduce && matchMedia('(pointer:fine)').matches){
+    let tx=0,ty=0,cx=0,cy=0,run=0;
+    const tick=()=>{cx+=(tx-cx)*.08; cy+=(ty-cy)*.08; deck.style.setProperty('--mx',cx.toFixed(4)); deck.style.setProperty('--my',cy.toFixed(4));
+      run=(Math.abs(tx-cx)+Math.abs(ty-cy)>.001)?requestAnimationFrame(tick):0;};
+    addEventListener('pointermove',e=>{tx=e.clientX/innerWidth-.5; ty=e.clientY/innerHeight-.5; if(!run) run=requestAnimationFrame(tick);});
+    $$('.way').forEach(el=>{ el.classList.add('tilt');
+      el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(); el.style.setProperty('--tx',((e.clientX-r.left)/r.width-.5).toFixed(3)); el.style.setProperty('--ty',((e.clientY-r.top)/r.height-.5).toFixed(3));});
+      el.addEventListener('pointerleave',()=>{el.style.setProperty('--tx',0); el.style.setProperty('--ty',0);}); });
+  }
+
+  /* ---------- posters open full size ---------- */
+  const lb=$('#lightbox'), lbImg=$('img',lb);
+  $$('.strip img').forEach(im=>im.addEventListener('click',()=>{lbImg.src=im.src; lbImg.alt=im.alt; lb.classList.add('open');}));
+  lb.addEventListener('click',()=>lb.classList.remove('open'));
 
   /* ---------- manifesto: the mark tilts toward the cursor ---------- */
   const shards=$('#shards'), man=$('#manifesto');
@@ -1176,7 +1278,7 @@ void main(){
     if(busy) return; busy=true;
     const from=slides[i], to=slides[n], a=vtNames(from), shared=[...vtNames(to)].filter(x=>a.has(x));
     const tag=(sl,on)=>$$('[data-vt]',sl).forEach(el=>{ if(shared.includes(el.dataset.vt)) el.style.viewTransitionName=on?el.dataset.vt:''; });
-    deck.classList.add('vt'); tag(from,true);
+    deck.classList.add('vt'); deck.style.setProperty('--dx',n<i?-1:1); tag(from,true);
     $$('[data-vt]',to).forEach(el=>el.classList.toggle('vt-on',shared.includes(el.dataset.vt)));
     const vt=document.startViewTransition(()=>{ tag(from,false); show(n,fromHash); tag(to,true); });
     vt.finished.finally(()=>{ tag(to,false); busy=false; });
@@ -1189,7 +1291,7 @@ void main(){
     bar.style.width=((i+1)/slides.length*100)+'%';
     bar.style.background=s.dataset.ch==='2'?'var(--green)':'var(--red)';
     count.textContent=String(i+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');
-    label(); markNav(); countUp(s);
+    label(); markNav(); paintRail(); countUp(s);
     if(vid){ if(s.id==='cover'){const p=vid.play(); if(p&&p.catch)p.catch(()=>{});} else vid.pause(); }
     cancelAnimationFrame(raf); raf=0; if($('canvas[data-lines]',s)) raf=requestAnimationFrame(draw);
     if(!fromHash && location.hash!=='#'+s.id){try{history.replaceState(null,'','#'+s.id);}catch(e){location.hash=s.id;}}
@@ -1204,7 +1306,7 @@ void main(){
     if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(i+1);}
     else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(i-1);}
     else if(e.key==='Home')go(0); else if(e.key==='End')go(slides.length-1);
-    else if(e.key==='Escape') setNav(false,false);
+    else if(e.key==='Escape'){ setNav(false,false); lb.classList.remove('open'); }
     else if(e.key==='f'||e.key==='F'){ const d=document; if(d.fullscreenElement) d.exitFullscreen(); else if(d.documentElement.requestFullscreen) d.documentElement.requestFullscreen().catch(()=>{}); }
   });
   /* swipe: horizontal only, so vertical scrolling inside a slide still works on phones */
