@@ -40,9 +40,9 @@ It is a company profile for prospective brand partners, not a priced sponsorship
   No hover, click or navigator sounds. Sources and licences: `assets/audio/credits.txt`.
   On by default, starts on the first interaction, remembered in localStorage.
 
-## Slides (17)
+## Slides (18)
 
-cover, manifesto, who, engines, roster, record, direbattle, circuit, events, cup, uprising,
+cover, manifesto, who, engines, roster, record, direbattle, circuit, events, cup, broadcast, uprising,
 reach, content, production, roadmap, partner, contact
 
 ## Decisions already made by the owner (keep these)
@@ -58,6 +58,13 @@ reach, content, production, roadmap, partner, contact
 - Hovering near the next/prev buttons must not open the slide navigator.
 - Data must be exact and unchanged; highlight a stat only when it is genuinely notable.
 - Whiteboard "brand vision" numbers are old and must not be used (its roadmap steps are fine).
+
+## Broadcast slide
+
+- `broadcast` (after `cup`): Dire Battle broadcast segments. Match & panel (live draft overlay), Kuis Kematian
+  (questions drawn from a fishbowl, panelist must answer), Tebak Skill (spin-the-wheel guessing game),
+  Tier List Kuliner Kota Bandung (hosted by a Dedi Mulyadi parody character; panelists taste and rank S to C).
+  Images `assets/bc-*.webp` are the owner's broadcast screenshots; tiles open in the lightbox.
 
 ## Data sources
 
