@@ -992,10 +992,14 @@ tr.soon td{color:var(--mute)}
     if(open){const cur=list.children[i]; if(cur) cur.scrollIntoView({block:'nearest',inline:'center'});} }
   function markNav(){[...list.children].forEach((b,k)=>b.setAttribute('aria-current',k===i?'true':'false'));}
   menu.addEventListener('click',()=>{const o=!strip.classList.contains('open'); setNav(o,o);});
+  /* Opens only from the empty left part of the bottom bar, after a short rest,
+     so reaching for the arrow buttons never pops it up. */
+  const ctrls=document.querySelector('.chrome .lang'); let navT=0;
   addEventListener('mousemove',e=>{ if(pinned) return;
-    const y=innerHeight-e.clientY;
-    if(y<90) { if(!strip.classList.contains('open')) setNav(true); }
-    else if(y>230 && !strip.matches(':hover')) setNav(false); });
+    const y=innerHeight-e.clientY, edge=ctrls.getBoundingClientRect().left-60;
+    const inZone=y<70 && e.clientX<edge;
+    if(inZone){ if(!strip.classList.contains('open') && !navT) navT=setTimeout(()=>{navT=0;setNav(true);},250); }
+    else { clearTimeout(navT); navT=0; if((y>230 || e.clientX>=edge && y<70) && !strip.matches(':hover')) setNav(false); } });
   document.addEventListener('mouseleave',()=>{ if(!pinned) setNav(false); });
 
   /* ---- split headline words so they can rise out of a mask ---- */
