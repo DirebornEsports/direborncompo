@@ -1,0 +1,814 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Direborn Esports company profile: the team, the Dire Battle Pro Circuit, and how to partner with us.">
+<meta property="og:title" content="Direborn Company Profile">
+<meta property="og:description" content="Born to Regenerate. Directed to Dominate. Indonesian Dota 2, home of Dire Battle.">
+<meta property="og:image" content="/assets/still_2.jpg">
+<meta name="theme-color" content="#0c0908">
+<link rel="icon" type="image/png" href="/assets/mark.png">
+<title>Direborn Company Profile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: full-screen slides on a warm black stage; corner metadata like a brand manual;
+   one bold move per slide (video, extruded mark, drawn circuit, thin red linework). */
+:root{
+  --ink:#0c0908;        /* stage */
+  --ash:#17110f;        /* raised surface */
+  --line:#2c211e;       /* hairlines */
+  --bone:#efe8e3;       /* primary text */
+  --mute:#94857f;       /* secondary text */
+  --red:#da2130;        /* Direborn red (logo) */
+  --red-deep:#8f222a;   /* logo shadow red */
+  --gold:#c7a246;       /* logo gold */
+  --green:#3aa572;      /* Dire Battle accent */
+  --acc:var(--red);
+  --f-display:"Chakra Petch","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --s-xs:clamp(11px,.8vw,13px);
+  --s-sm:clamp(13px,1vw,15px);
+  --s-md:clamp(15px,1.25vw,19px);
+  --s-lg:clamp(22px,2.4vw,36px);
+  --s-xl:clamp(34px,4.6vw,72px);
+  --s-xxl:clamp(52px,8.4vw,140px);
+  --gut:clamp(20px,4vw,64px);
+  color-scheme:dark;
+}
+html,body{height:100%;margin:0}
+body{background:var(--ink);color:var(--bone);font-family:var(--f-body);font-size:var(--s-md);line-height:1.5;overflow:hidden;
+  padding-left:max(0px,env(safe-area-inset-left,0px));padding-right:max(0px,env(safe-area-inset-right,0px))}
+*{box-sizing:border-box}
+h1,h2,h3{font-family:var(--f-display);font-weight:700;line-height:.98;margin:0;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0}
+.mono{font-family:var(--f-mono);font-size:var(--s-xs);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+[data-lang="en"] .id,[data-lang="id"] .en{display:none!important}
+
+/* ---------- deck shell ---------- */
+.deck{position:relative;height:100%;width:100%;overflow:hidden}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;visibility:hidden;opacity:0;transition:opacity .5s ease,visibility 0s .5s;
+  padding:calc(var(--gut) + 8px) max(var(--gut),env(safe-area-inset-right,0px)) calc(var(--gut) + 54px) max(var(--gut),env(safe-area-inset-left,0px))}
+.slide.active{visibility:visible;opacity:1;transition:opacity .5s ease}
+.slide[data-ch="2"]{--acc:var(--green)}
+.inner{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;gap:clamp(18px,2.4vw,36px);position:relative;z-index:2;width:100%;max-width:1440px;margin-inline:auto}
+.eyebrow{display:flex;gap:14px;align-items:center}
+.eyebrow b{color:var(--acc);font-weight:500}
+.eyebrow::before{content:"";width:28px;height:1px;background:var(--acc)}
+
+/* reveal: elements rest visible; on entering a slide they replay from an offset */
+.slide.active .rv{animation:rise .8s cubic-bezier(.2,.7,.1,1) both;animation-delay:calc(var(--d,0) * 90ms + 120ms)}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+/* chrome */
+.chrome{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;align-items:center;gap:16px;
+  padding:12px max(var(--gut),env(safe-area-inset-right,0px)) calc(14px + env(safe-area-inset-bottom,0px)) max(var(--gut),env(safe-area-inset-left,0px));
+  background:linear-gradient(transparent,rgba(12,9,8,.85) 45%)}
+.chrome .sec{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chrome .count{font-variant-numeric:tabular-nums;color:var(--bone)}
+.btn{font:500 var(--s-xs)/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--bone);background:transparent;border:1px solid var(--line);
+  height:36px;min-width:36px;padding:0 12px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.btn:hover{border-color:var(--bone)}
+.btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.lang .btn{border-color:transparent;padding:0 8px}
+.lang .btn[aria-pressed="true"]{color:var(--ink);background:var(--bone)}
+.lang{display:flex;border:1px solid var(--line)}
+.bar{position:fixed;left:0;top:0;height:2px;background:var(--acc,var(--red));z-index:21;transition:width .5s ease,background .5s;margin-top:env(safe-area-inset-top,0px)}
+.brand{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));left:max(var(--gut),env(safe-area-inset-left,0px));right:max(var(--gut),env(safe-area-inset-right,0px));z-index:20;display:flex;justify-content:space-between;pointer-events:none}
+.brand .tc{font-variant-numeric:tabular-nums}
+
+/* ---------- 01 cover ---------- */
+.s-cover{padding:0}
+.s-cover video,.s-cover .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;max-width:none}
+.s-cover .shade{position:absolute;inset:0;background:
+  radial-gradient(120% 90% at 20% 100%,rgba(12,9,8,.95) 20%,rgba(12,9,8,.55) 60%,rgba(12,9,8,.35)),
+  linear-gradient(90deg,rgba(12,9,8,.85),rgba(12,9,8,.1) 70%)}
+.s-cover .inner{justify-content:flex-end;padding:var(--gut);padding-bottom:calc(var(--gut) + 64px);max-width:none;margin:0}
+.s-cover .wm{width:min(78vw,900px);height:auto;display:block}
+.s-cover .tag{display:flex;flex-wrap:wrap;gap:10px 28px;align-items:baseline}
+.s-cover .tag h2{font-size:var(--s-lg);font-weight:600;color:var(--bone)}
+
+/* ---------- 02 manifesto (extruded mark) ---------- */
+.s-man .inner{flex-direction:row;align-items:center;justify-content:space-between;gap:var(--gut)}
+.extrude{position:relative;width:min(34vw,440px);aspect-ratio:680/840;max-width:100%;flex:none}
+.extrude::before{content:"";position:absolute;inset:12%;background:radial-gradient(closest-side,rgba(218,33,48,.35),transparent);filter:blur(30px)}
+.extrude img{position:relative;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 30px 50px rgba(0,0,0,.6))}
+.slide.active .extrude img{animation:markIn 1.2s cubic-bezier(.2,.7,.1,1) both, hover 6s ease-in-out 1.2s infinite}
+@keyframes markIn{from{opacity:0;transform:translateX(-40px) scale(.94)}to{opacity:1;transform:none}}
+@keyframes hover{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.man-text{display:flex;flex-direction:column;gap:24px;flex:1;max-width:760px;min-width:0}
+.man-text h1{font-size:clamp(44px,6.4vw,112px);line-height:.92}
+.man-text h1 span{display:block}
+.man-text h1 .g{color:var(--red)}
+.man-text p{color:var(--mute);max-width:46ch}
+
+/* ---------- generic heads ---------- */
+.head{display:grid;gap:14px;max-width:980px}
+.head h2{font-size:var(--s-xl)}
+.head p{color:var(--mute);max-width:60ch}
+
+/* ---------- 03 who ---------- */
+.who{display:grid;grid-template-columns:1.1fr 1fr;gap:var(--gut);align-items:center}
+.who figure{margin:0;position:relative;aspect-ratio:16/10;overflow:hidden;max-width:100%}
+.who figure img{width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.05)}
+.who figure figcaption{position:absolute;left:12px;bottom:10px}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line)}
+.facts div{padding:14px 0;border-bottom:1px solid var(--line);display:grid;gap:4px;min-width:0}
+.facts div:nth-child(odd){padding-right:16px}
+.facts dd{margin:0;font-family:var(--f-display);font-weight:600;font-size:clamp(17px,1.6vw,24px)}
+.facts dt{margin:0}
+
+/* ---------- 04 engines ---------- */
+.engines{display:grid;grid-template-columns:1fr 1fr;gap:2px;flex:1;min-height:0;max-height:560px}
+.eng{position:relative;padding:clamp(20px,3vw,44px);display:flex;flex-direction:column;justify-content:space-between;gap:24px;overflow:hidden;background:var(--ash);min-width:0}
+.eng::after{content:"";position:absolute;inset:auto 0 0 0;height:3px;background:var(--c)}
+.eng .verb{font-family:var(--f-display);font-weight:700;font-size:var(--s-xxl);color:var(--c);line-height:.85}
+.eng h3{font-size:var(--s-lg)}
+.eng p{color:var(--mute);max-width:40ch}
+.eng .big{position:absolute;right:-6%;top:-8%;width:52%;opacity:.07;pointer-events:none}
+
+/* ---------- 05 roster ---------- */
+.roster{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(8px,1.2vw,18px);flex:1;min-height:0;align-items:end}
+.player{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:0;height:100%;max-height:600px}
+.player .ph{position:relative;flex:1;min-height:0;display:flex;align-items:flex-end;justify-content:center;
+  background:linear-gradient(180deg,transparent 30%,rgba(218,33,48,.16));border-bottom:1px solid var(--line);overflow:hidden}
+.player .ph::before{content:attr(data-n);position:absolute;top:8px;left:10px;font-family:var(--f-mono);font-size:var(--s-xs);color:var(--mute)}
+.player img{height:100%;width:auto;max-width:120%;object-fit:contain;object-position:bottom;transition:transform .6s cubic-bezier(.2,.7,.1,1);filter:drop-shadow(0 18px 30px rgba(0,0,0,.6))}
+.player:hover img{transform:scale(1.04)}
+.player .nm{padding-top:12px;display:grid;gap:2px}
+.player .nm b{font-family:var(--f-display);font-size:clamp(18px,1.9vw,30px);font-weight:700;line-height:1}
+.slide.active .player{animation:rise .9s cubic-bezier(.2,.7,.1,1) both;animation-delay:calc(var(--d) * 110ms + 150ms)}
+
+/* ---------- 06 track record ---------- */
+.trophies{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.tro{background:var(--ash);padding:clamp(20px,3vw,44px);display:grid;gap:18px;position:relative;overflow:hidden}
+.tro .pl{font-family:var(--f-display);font-weight:700;font-size:clamp(80px,13vw,220px);line-height:.8;color:var(--gold);display:flex;align-items:flex-start}
+.tro .pl sup{font-size:.32em;margin-top:.15em;margin-left:.05em}
+.tro h3{font-size:var(--s-lg)}
+.rec{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);gap:var(--gut);align-items:center}
+.rec .tro{padding:clamp(16px,2vw,28px);gap:10px}
+.rec .tro .pl{font-size:clamp(64px,8vw,140px)}
+.post{margin:0;max-width:100%}
+.post img{width:100%;height:auto;max-height:68vh;object-fit:contain;display:block;box-shadow:0 30px 60px rgba(0,0,0,.55)}
+.posts{display:flex;gap:10px;align-items:flex-end}
+.posts img{height:clamp(110px,16vh,190px);width:auto;max-width:48%;object-fit:cover;opacity:.9}
+
+/* ---------- content wall ---------- */
+.feeds{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(12px,2vw,28px)}
+.feed{margin:0;display:grid;gap:10px;min-width:0}
+.feed img{width:100%;height:auto;display:block;border-top:2px solid var(--c)}
+.feed figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.feed figcaption b{font-family:var(--f-display);font-weight:600;font-size:var(--s-md)}
+
+/* ---------- linework canvas ---------- */
+.lines{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:.9}
+
+/* ---------- 07 why ---------- */
+.why{display:grid;grid-template-columns:1.3fr 1fr;gap:var(--gut);align-items:end}
+.why h2{font-size:var(--s-xxl);line-height:.9}
+.rule{border-left:2px solid var(--acc);padding:6px 0 6px 18px;display:grid;gap:10px;max-width:46ch}
+.rule p{color:var(--bone)}
+
+/* ---------- 08 circuit ---------- */
+.circuit{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;position:relative}
+.stage{position:relative;padding:28px 18px 0 0;display:grid;gap:10px;align-content:start;min-width:0}
+.stage .node{position:absolute;top:0;left:0;width:14px;height:14px;transform:translateY(-6px) rotate(45deg);background:var(--ink);border:2px solid var(--mute)}
+.stage.done .node{background:var(--acc);border-color:var(--acc)}
+.stage.now .node{border-color:var(--acc);box-shadow:0 0 0 6px rgba(58,165,114,.18)}
+.stage::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--line)}
+.stage::after{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--acc);transform-origin:left;transform:scaleX(var(--fill,0))}
+.slide.active .stage::after{animation:draw 1s cubic-bezier(.6,0,.2,1) both;animation-delay:calc(var(--d) * 280ms + 200ms)}
+@keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(var(--fill,0))}}
+.stage .no{font-family:var(--f-mono);font-size:var(--s-xs);color:var(--acc)}
+.stage h3{font-size:clamp(20px,2.1vw,32px)}
+.stage p{color:var(--mute);font-size:var(--s-sm);max-width:30ch}
+.pill{display:inline-flex;align-self:start;justify-self:start;font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:4px 8px;border:1px solid var(--line);color:var(--mute)}
+.pill.on{border-color:var(--acc);color:var(--acc)}
+.side{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;border-top:1px dashed var(--line);padding-top:16px}
+.side span.chip{font-family:var(--f-display);font-weight:600;font-size:var(--s-md)}
+
+/* ---------- 09 events ---------- */
+.ev{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:var(--gut);align-items:start}
+.tot{display:grid;gap:22px}
+.tot div{display:grid;gap:4px;border-top:1px solid var(--line);padding-top:12px}
+.num{font-family:var(--f-display);font-weight:700;font-size:var(--s-xl);line-height:.95;font-variant-numeric:tabular-nums}
+.num small{font-size:.4em;color:var(--mute);font-weight:600;margin-right:.3em}
+.tbl{overflow-x:auto;min-width:0}
+table{border-collapse:collapse;width:100%;font-size:var(--s-sm);font-variant-numeric:tabular-nums;min-width:560px}
+th{font-family:var(--f-mono);font-weight:400;font-size:var(--s-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--mute);text-align:left;padding:0 10px 10px 0;border-bottom:1px solid var(--line)}
+td{padding:11px 10px 11px 0;border-bottom:1px solid var(--line);vertical-align:top}
+td:first-child{font-family:var(--f-display);font-weight:600;font-size:var(--s-md);white-space:nowrap}
+td.r,th.r{text-align:right}
+tr.cup td{color:var(--bone)}
+tr.cup td:first-child{color:var(--acc)}
+tr.soon td{color:var(--mute)}
+.slide.active tbody tr{animation:rise .6s ease both;animation-delay:calc(var(--d) * 60ms + 300ms)}
+
+/* ---------- 10 cup ---------- */
+.cup{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:var(--gut);align-items:stretch}
+.champ{background:var(--ash);padding:clamp(20px,3vw,40px);display:flex;flex-direction:column;justify-content:space-between;gap:28px;position:relative;overflow:hidden}
+.champ .thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.28;max-width:none}
+.champ::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,17,15,.2),rgba(23,17,15,.92) 70%);pointer-events:none}
+.champ>div{position:relative;z-index:1}
+.champ .score{font-family:var(--f-display);font-weight:700;font-size:clamp(70px,11vw,180px);line-height:.8;color:var(--gold);font-variant-numeric:tabular-nums}
+.champ h3{font-size:var(--s-xl)}
+.champ .vs{color:var(--mute)}
+.yt{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;align-content:start}
+.yt .k{padding:16px 16px 16px 0;border-top:1px solid var(--line);display:grid;gap:6px;min-width:0}
+.yt .k .num{font-size:clamp(28px,3.3vw,52px)}
+.yt .hl{grid-column:1/-1;border-top:2px solid var(--gold);padding:18px 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.yt .hl .lbl{grid-column:1/-1;color:var(--gold)}
+
+/* ---------- 11 uprising ---------- */
+.s-up .bg{position:absolute;inset:0;background:
+  radial-gradient(60% 70% at 85% 20%,rgba(199,162,70,.22),transparent 60%),
+  radial-gradient(70% 80% at 70% 90%,rgba(58,165,114,.18),transparent 60%)}
+.up{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.8fr);gap:var(--gut);align-items:center}
+.up-poster{justify-self:end}
+.up-poster img{max-height:70vh;width:auto;max-width:100%}
+.up h2{font-size:clamp(48px,7vw,124px)}
+.up h2{font-size:var(--s-xxl);line-height:.88}
+.up h2 em{font-style:normal;color:var(--gold);display:block}
+.up dl{margin:0;display:grid;border-top:1px solid var(--line)}
+.up dl div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.up dd{margin:0;font-family:var(--f-display);font-weight:600;text-align:right}
+
+/* ---------- 12 reach ---------- */
+.reach{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gut)}
+.acct{display:grid;gap:14px;align-content:start;min-width:0}
+.acct header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--c);padding-bottom:10px}
+.acct header h3{font-size:var(--s-lg)}
+.kgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+.kgrid div{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);display:grid;gap:4px;min-width:0}
+.kgrid .num{font-size:clamp(24px,2.8vw,44px)}
+.kgrid div.lead .num{font-size:clamp(40px,5.2vw,84px)}
+.kgrid div.lead{grid-column:1/-1}
+.channels{display:flex;flex-wrap:wrap;gap:8px 22px}
+.channels span{font-family:var(--f-mono);font-size:var(--s-xs);color:var(--bone)}
+
+/* ---------- 13 production ---------- */
+.prod{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--gut);align-items:center}
+.prod .shots{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.prod .shots img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.prod .shots img:first-child{grid-column:1/-1;aspect-ratio:16/8}
+.cols{display:grid;gap:22px}
+.col{display:grid;gap:8px;border-top:1px solid var(--line);padding-top:14px}
+.col h3{font-size:var(--s-lg);color:var(--bone)}
+.col ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--mute);font-size:var(--s-sm)}
+.col li::before{content:"/ ";color:var(--acc)}
+
+/* ---------- 14 roadmap ---------- */
+.road{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;counter-reset:r}
+.step{position:relative;padding:30px 16px 0 0;display:grid;gap:10px;align-content:start;min-width:0}
+.step::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,var(--red),var(--gold))}
+.step::after{content:"";position:absolute;left:0;top:-5px;width:11px;height:11px;border-radius:50%;background:var(--ink);border:2px solid var(--red)}
+.step h3{font-size:clamp(19px,1.8vw,28px)}
+.step p{color:var(--mute);font-size:var(--s-sm)}
+
+/* ---------- 15 partner ---------- */
+.ways{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px}
+.way{background:var(--ash);padding:clamp(18px,2.2vw,32px);display:grid;gap:14px;align-content:start;min-width:0;transition:background .3s}
+.way:hover{background:#21181500;background:#211815}
+.way h3{font-size:var(--s-lg)}
+.way p{color:var(--mute);font-size:var(--s-sm)}
+.way ul{margin:0;padding:0;list-style:none;display:grid;gap:6px;font-size:var(--s-sm)}
+.way li{padding-left:14px;position:relative}
+.way li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;background:var(--red);transform:rotate(45deg)}
+
+/* ---------- 16 contact ---------- */
+.end h2{font-size:var(--s-xxl);line-height:.88;max-width:14ch}
+.contact{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gut);border-top:1px solid var(--line);padding-top:20px}
+.contact div{display:grid;gap:6px;min-width:0}
+.contact b{font-family:var(--f-display);font-weight:600;font-size:var(--s-md);overflow-wrap:anywhere}
+.todo{color:var(--gold)}
+
+/* ---------- responsive ---------- */
+@media (max-width:860px){
+  .rec,.feeds{grid-template-columns:minmax(0,1fr)}
+  .up-poster{justify-self:start}
+  .post img{max-height:none}
+  body{overflow:hidden}
+  .slide{overflow-y:auto;-webkit-overflow-scrolling:touch;padding-top:calc(56px + env(safe-area-inset-top,0px))}
+  .inner{justify-content:flex-start}
+  .s-cover .inner{justify-content:flex-end}
+  .s-man .inner{flex-direction:column;align-items:flex-start}
+  .extrude{width:min(62vw,300px)}
+  .who,.why,.ev,.cup,.up,.reach,.prod{grid-template-columns:minmax(0,1fr)}
+  .engines,.trophies{grid-template-columns:minmax(0,1fr);max-height:none}
+  .roster{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}
+  .player{height:auto}
+  .player .ph{height:260px;flex:none}
+  .circuit{grid-template-columns:minmax(0,1fr)}
+  .stage{padding:0 0 22px 28px}
+  .stage::before,.stage::after{top:0;bottom:0;left:6px;right:auto;width:2px;height:auto;transform-origin:top;transform:scaleY(var(--fill,0))}
+  .stage::before{transform:none}
+  .slide.active .stage::after{animation-name:drawv}
+  .stage .node{transform:rotate(45deg)}
+  .road{grid-template-columns:minmax(0,1fr)}
+  .step{padding:0 0 20px 26px}
+  .step::before{left:5px;right:auto;top:0;bottom:0;width:1px;height:auto;background:linear-gradient(var(--red),var(--gold))}
+  .step::after{top:2px;left:0}
+  .ways{grid-template-columns:minmax(0,1fr)}
+  .contact{grid-template-columns:minmax(0,1fr)}
+  .kgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .chrome .sec{display:none}
+}
+@keyframes drawv{from{transform:scaleY(0)}to{transform:scaleY(var(--fill,0))}}
+@media (max-width:860px) and (min-width:0){.roster .player:last-child{grid-column:1/-1}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+
+<div class="bar" id="bar"></div>
+<div class="brand mono" aria-hidden="true">
+  <span>Direborn Esports</span>
+  <span class="tc" id="tc">00:00:00:00</span>
+</div>
+
+<main class="deck" id="deck" data-lang="en" aria-live="polite">
+
+<!-- 01 COVER -->
+<section class="slide s-cover" id="cover" data-ch="0" data-sec-en="Cover" data-sec-id="Sampul">
+  <img class="poster" src="assets/still_2.jpg" alt="">
+  <video id="coverVideo" src="assets/cover.mp4" poster="assets/still_2.jpg" autoplay muted loop playsinline preload="auto"></video>
+  <div class="shade"></div>
+  <div class="inner">
+    <span class="mono rv" style="--d:0"><span class="en">Company Profile · 2026</span><span class="id">Profil Perusahaan · 2026</span></span>
+    <img class="wm rv" style="--d:1" src="assets/wordmark.png" alt="Direborn Esports" width="863" height="195">
+    <div class="tag rv" style="--d:2">
+      <h2><span class="en">Indonesian Dota 2. Home of Dire Battle.</span><span class="id">Dota 2 Indonesia. Rumah Dire Battle.</span></h2>
+      <span class="mono">PT Prosperity Unggul Abadi</span>
+    </div>
+  </div>
+</section>
+
+<!-- 02 MANIFESTO -->
+<section class="slide s-man" id="manifesto" data-ch="0" data-sec-en="Manifesto" data-sec-id="Manifesto">
+  <div class="inner">
+    <div class="extrude" aria-hidden="true"><img src="assets/mark.png" alt=""></div>
+    <div class="man-text">
+      <span class="mono rv" style="--d:0"><span class="en">What we stand for</span><span class="id">Yang kami pegang</span></span>
+      <h1 class="rv" style="--d:1"><span>Born to</span><span class="g">Regenerate.</span><span>Directed to</span><span class="g">Dominate.</span></h1>
+      <p class="rv" style="--d:3"><span class="en">We compete to win today, and we build the stage for whoever wins tomorrow.</span><span class="id">Kami bertanding untuk menang hari ini, dan membangun panggung untuk pemenang berikutnya.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- 03 WHO -->
+<section class="slide" id="who" data-ch="1" data-sec-en="01 · Direborn" data-sec-id="01 · Direborn">
+  <div class="inner">
+    <div class="eyebrow mono rv"><b>01</b><span class="en">Who we are</span><span class="id">Siapa kami</span></div>
+    <div class="who">
+      <div class="head rv" style="--d:1">
+        <h2><span class="en">An Indonesian Dota 2 team, built to win and to rebuild the scene.</span><span class="id">Tim Dota 2 Indonesia, dibangun untuk menang dan membangun ulang skena.</span></h2>
+        <p><span class="en">Direborn Esports was founded in 2026 with a five-man, all-Indonesian roster. We play to win, and everything we build around the team goes back into regenerating Indonesian Dota 2.</span><span class="id">Direborn Esports berdiri tahun 2026 dengan lima pemain, semuanya asli Indonesia. Kami main untuk menang, dan semua yang kami bangun di sekitar tim kembali untuk meregenerasi Dota 2 Indonesia.</span></p>
+        <dl class="facts">
+          <div><dt class="mono"><span class="en">Founded</span><span class="id">Berdiri</span></dt><dd>2026</dd></div>
+          <div><dt class="mono"><span class="en">Game</span><span class="id">Game</span></dt><dd>Dota 2</dd></div>
+          <div><dt class="mono"><span class="en">Roster</span><span class="id">Roster</span></dt><dd><span class="en">5 Indonesian players</span><span class="id">5 pemain Indonesia</span></dd></div>
+          <div><dt class="mono"><span class="en">Company</span><span class="id">Perusahaan</span></dt><dd>PT Prosperity Unggul Abadi</dd></div>
+        </dl>
+      </div>
+      <figure class="rv" style="--d:2"><img src="assets/still_18.jpg" alt="A Direborn setup in red light" loading="lazy"><figcaption class="mono">Direborn</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 04 ENGINES -->
+<section class="slide" id="engines" data-ch="1" data-sec-en="01 · Direborn" data-sec-id="01 · Direborn">
+  <div class="inner">
+    <div class="eyebrow mono rv"><b>02</b><span class="en">Two engines</span><span class="id">Dua mesin</span></div>
+    <div class="engines">
+      <article class="eng rv" style="--c:var(--red);--d:1">
+        <img class="big" src="assets/mark.png" alt="">
+        <span class="mono">Direborn Esports</span>
+        <div class="verb"><span class="en">Compete</span><span class="id">Bertanding</span></div>
+        <div style="display:grid;gap:10px">
+          <h3><span class="en">The pro team</span><span class="id">Tim pro</span></h3>
+          <p><span class="en">Our five-man roster, competing in Dota 2 for Indonesia and the SEA region.</span><span class="id">Roster lima pemain kami, bertanding di Dota 2 untuk Indonesia dan region SEA.</span></p>
+        </div>
+      </article>
+      <article class="eng rv" style="--c:var(--green);--d:2">
+        <span class="mono">Dire Battle</span>
+        <div class="verb"><span class="en">Develop</span><span class="id">Membina</span></div>
+        <div style="display:grid;gap:10px">
+          <h3><span class="en">The tournament circuit</span><span class="id">Sirkuit turnamen</span></h3>
+          <p><span class="en">Our own tournament series, built to find and grow the next generation of Indonesian pros.</span><span class="id">Seri turnamen kami sendiri, dibuat untuk menemukan dan membina generasi pro Indonesia berikutnya.</span></p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 05 ROSTER -->
+<section class="slide" id="roster" data-ch="1" data-sec-en="01 · Direborn" data-sec-id="01 · Direborn">
+  <div class="inner">
+    <div class="eyebrow mono rv"><b>03</b><span class="en">The roster</span><span class="id">Roster</span></div>
+    <div class="roster">
+      <div class="player" style="--d:0"><div class="ph" data-n="01"><img src="assets/dreamocel.webp" alt="Dreamocel"></div><div class="nm"><b>Dreamocel</b><span class="mono">Randy Sapoetra</span></div></div>
+      <div class="player" style="--d:1"><div class="ph" data-n="02"><img src="assets/womy.webp" alt="woMy"></div><div class="nm"><b>woMy</b><span class="mono">Said Romy</span></div></div>
+      <div class="player" style="--d:2"><div class="ph" data-n="03"><img src="assets/potat2.webp" alt="PotaT2"></div><div class="nm"><b>PotaT2</b><span class="mono">Noel Pinot</span></div></div>
+      <div class="player" style="--d:3"><div class="ph" data-n="04"><img src="assets/db.webp" alt="db-"></div><div class="nm"><b>db-</b><span class="mono">Daud Budiawan</span></div></div>
+      <div class="player" style="--d:4"><div class="ph" data-n="05"><img src="assets/dalul.webp" alt="dalul"></div><div class="nm"><b>dalul</b><span class="mono">Abdalla Putra Afemi</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 TRACK RECORD -->
+<section class="slide" id="record" data-ch="1" data-sec-en="01 · Direborn" data-sec-id="01 · Direborn">
+  <div class="inner">
+    <div class="eyebrow mono rv"><b>04</b><span class="en">Track record</span><span class="id">Rekam jejak</span></div>
+    <div class="rec">
+      <figure class="post rv" style="--d:1"><img src="assets/epl-champion.webp" alt="Direborn, EPL SEA 19 Grand Champion" width="718" height="893"></figure>
+      <div style="display:grid;gap:clamp(18px,2.4vw,32px);min-width:0">
+        <div class="head rv" style="--d:2"><h2><span class="en">Two tournaments. Two titles.</span><span class="id">Dua turnamen. Dua gelar juara.</span></h2></div>
+        <div class="trophies">
+          <article class="tro rv" style="--d:3"><div class="pl">1<sup>st</sup></div><div><span class="mono"><span class="en">Grand Champion</span><span class="id">Grand Champion</span></span><h3>EPL SEA 19</h3></div></article>
+          <article class="tro rv" style="--d:4"><div class="pl">1<sup>st</sup></div><div><span class="mono"><span class="en">Champion</span><span class="id">Juara</span></span><h3>Lunar Trophy</h3></div></article>
+        </div>
+        <div class="posts rv" style="--d:5">
+          <img src="assets/epl-matchday.webp" alt="EPL match day post" loading="lazy">
+          <img src="assets/epl-result.webp" alt="EPL match result post, Direborn 2–0" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 WHY DIRE BATTLE -->
+<section class="slide" id="why" data-ch="2" data-sec-en="02 · Dire Battle" data-sec-id="02 · Dire Battle">
+  <canvas class="lines" data-lines></canvas>
+  <div class="inner">
+    <div class="eyebrow mono rv"><b>05</b><span class="en">Why Dire Battle exists</span><span class="id">Kenapa Dire Battle ada</span></div>
+    <div class="why">
+      <h2 class="rv" style="--d:1"><span class="en">Talent needs a path, not just a pool.</span><span class="id">Talenta butuh jalur, bukan sekadar kumpulan pemain.</span></h2>
+      <div style="display:grid;gap:24px">
+        <p class="rv" style="--d:2;color:var(--mute)"><span class="en">Indonesia has plenty of Dota 2 players. What it lacks is a regular, visible route from open tournaments to the pro stage. Dire Battle is that route.</span><span class="id">Indonesia punya banyak pemain Dota 2. Yang kurang adalah jalur yang rutin dan jelas dari turnamen terbuka ke panggung pro. Dire Battle adalah jalur itu.</span></p>
+        <div class="rule rv" style="--d:3">
+          <span class="mono"><span class="en">Open Series rulebook</span><span class="id">Rulebook Open Series</span></span>
+          <p><span class="en">Current pro players, and anyone who played a Tier 3 or higher international tournament in the last 3 years, cannot enter. The stage is kept for players still on their way up.</span><span class="id">Pemain tim pro aktif, dan pemain yang pernah tampil di turnamen internasional Tier 3 ke atas dalam 3 tahun terakhir, tidak boleh ikut. Panggungnya untuk pemain yang sedang naik.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 CIRCUIT -->
+<section class="slide" id="circuit" data-ch="2" data-sec-en="02 · Dire Battle" data-sec-id="02 · Dire Battle">
+  <div class="inner">
+    <div class="eyebrow mono rv"><b>06</b>Dire Battle Pro Circuit</div>
+    <div class="head rv" style="--d:1"><h2><span class="en">From open lobby to international stage.</span><span class="id">Dari lobby terbuka ke panggung internasional.</span></h2></div>
+    <div class="circuit">
+      <div class="stage done rv" style="--d:0;--fill:1">
+        <span class="node"></span><span class="no">01</span>
+        <h3>Open Series<br>&amp; Uprising</h3>
+        <p><span class="en">Open-entry qualifiers. Uprising runs beside the Open Series as a mini series.</span><span class="id">Kualifikasi terbuka. Uprising berjalan di samping Open Series sebagai mini series.</span></p>
+        <span class="pill on"><span class="en">Running</span><span class="id">Berjalan</span></span>
+      </div>
+      <div class="stage done rv" style="--d:1;--fill:1">
+        <span class="node"></span><span class="no">02</span>
+        <h3>Dire Battle Cup</h3>
+        <p><span class="en">Winners and runners-up of each Open Series. 8 teams.</span><span class="id">Juara 1 dan 2 tiap Open Series. 8 tim.</span></p>
+        <span class="pill on"><span class="en">Completed · Oct 2026</span><span class="id">Selesai · Okt 2026</span></span>
+      </div>
+      <div class="stage now rv" style="--d:2;--fill:.5">
+        <span class="node"></span><span class="no">03</span>
+        <h3>Dire Battle League</h3>
+        <p><span class="en">The Cup's top 4 advance.</span><span class="id">4 tim terbaik Cup lanjut ke sini.</span></p>
+        <span class="pill"><span class="en">Next</span><span class="id">Berikutnya</span></span>
+      </div>
+      <div class="stage rv" style="--d:3;--fill:0">
+        <span class="node"></span><span class="no">04</span>
+        <h3>Dire Battle International</h3>
+        <p><span class="en">Indonesian teams against the region.</span><span class="id">Tim Indonesia melawan region.</span></p>
+        <span class="pill"><span class="en">Planned</span><span class="id">Direncanakan</span></span>
+      </div>
+    </div>
+    <div class="side rv" style="--d:4">
+      <span class="mono"><span class="en">Side events</span><span class="id">Event sampingan</span></span>
+      <span class="chip">Mix Series</span><span class="chip">Showdown 1v1 Mid</span>
+    </div>
+  </div>
+</section>
+
+<!-- 09 EVENTS -->
+<section class="slide" id="events" data-ch="2" data-sec-en="02 · Dire Battle" data-sec-id="02 · Dire Battle">
+  <div class="inner">
+    <div class="eyebrow mono rv"><b>07</b><span class="en">What we've run</span><span class="id">Yang sudah kami jalankan</span></div>
+    <div class="ev">
+      <div class="tot">
+        <div class="rv" style="--d:1"><span class="num" data-count="7">7</span><span class="mono"><span class="en">Events completed, Jul–Oct 2026</span><span class="id">Event selesai, Jul–Okt 2026</span></span></div>
+        <div class="rv" style="--d:2"><span class="num"><small>IDR</small><span data-count="101500000">101,500,000</span></span><span class="mono"><span class="en">Total prize pool, completed events</span><span class="id">Total prize pool, event yang selesai</span></span></div>
+        <div class="rv" style="--d:3"><span class="num" data-count="59">59</span><span class="mono"><span class="en">Team entries across Open Series 1–4</span><span class="id">Pendaftaran tim di Open Series 1–4</span></span></div>
+      </div>
+      <div class="tbl rv" style="--d:2">
+        <table>
+          <thead><tr><th>Event</th><th><span class="en">Date</span><span class="id">Waktu</span></th><th class="r"><span class="en">Teams</span><span class="id">Tim</span></th><th class="r">Prize pool (IDR)</th><th><span class="en">Champion</span><span class="id">Juara</span></th></tr></thead>
+          <tbody>
+            <tr style="--d:0"><td>Open Series 1</td><td data-m="2026-07"></td><td class="r">16</td><td class="r" data-n="10000000"></td><td>ULAR REBORN</td></tr>
+            <tr style="--d:1"><td>Open Series 2</td><td data-m="2026-08"></td><td class="r">12</td><td class="r" data-n="10000000"></td><td>Maxwell+4</td></tr>
+            <tr style="--d:2"><td>Mix Series</td><td data-m="2026-08"></td><td class="r">—</td><td class="r" data-n="7500000"></td><td>—</td></tr>
+            <tr style="--d:3"><td>Open Series 3</td><td data-m="2026-09"></td><td class="r">15</td><td class="r" data-n="10000000"></td><td>FARHAN+4</td></tr>
+            <tr style="--d:4"><td>Open Series 4</td><td data-m="2026-09"></td><td class="r">16</td><td class="r" data-n="10000000"></td><td>The Dudz</td></tr>
+            <tr style="--d:5" class="cup"><td>Dire Battle Cup</td><td data-m="2026-10"></td><td class="r">8</td><td class="r" data-n="50000000"></td><td>Maxwell+4</td></tr>
+            <tr style="--d:6"><td>Showdown 1v1 Mid</td><td data-m="2026-10"></td><td class="r">—</td><td class="r" data-n="4000000"></td><td>JD</td></tr>
+            <tr style="--d:7" class="soon"><td>Uprising 1</td><td data-m="2026-11"></td><td class="r"><span class="en">Open</span><span class="id">Dibuka</span></td><td class="r" data-n="10000000"></td><td><span class="en">Upcoming</span><span class="id">Segera</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 CUP -->
+<section class="slide" id="cup" data-ch="2" data-sec-en="02 · Dire Battle" data-sec-id="02 · Dire Battle">
+  <div class="inner">
+    <div class="eyebrow mono rv"><b>08</b><span class="en">Dire Battle Cup by the numbers</span><span class="id">Dire Battle Cup dalam angka</span></div>
+    <div class="cup">
+      <article class="champ rv" style="--d:1">
+        <img class="thumb" src="assets/cup-grandfinal.webp" alt="Dire Battle Cup Grand Finals thumbnail" loading="lazy">
+        <div style="display:grid;gap:8px;position:relative">
+          <span class="mono"><span class="en">Grand Final · 25 Oct 2026 · Bo5</span><span class="id">Grand Final · 25 Okt 2026 · Bo5</span></span>
+          <div class="score">3–2</div>
+        </div>
+        <div style="display:grid;gap:6px">
+          <span class="mono" style="color:var(--gold)"><span class="en">Champion</span><span class="id">Juara</span></span>
+          <h3>Maxwell+4</h3>
+          <span class="vs"><span class="en">over chad · 8 teams · IDR 50,000,000 prize pool</span><span class="id">atas chad · 8 tim · prize pool IDR 50.000.000</span></span>
+        </div>
+      </article>
+      <div class="yt rv" style="--d:2">
+        <span class="mono" style="grid-column:1/-1;padding-bottom:12px"><span class="en">Cup content on YouTube · 12 Oct – 8 Nov 2026</span><span class="id">Konten Cup di YouTube · 12 Okt – 8 Nov 2026</span></span>
+        <div class="k"><span class="num" data-count="448947">448,947</span><span class="mono"><span class="en">Views</span><span class="id">Views</span></span></div>
+        <div class="k"><span class="num" data-count="28499.0" data-dec="1">28,499.0</span><span class="mono"><span class="en">Watch time (hours)</span><span class="id">Waktu tonton (jam)</span></span></div>
+        <div class="k"><span class="num" data-count="1151525">1,151,525</span><span class="mono"><span class="en">Thumbnail impressions</span><span class="id">Impresi thumbnail</span></span></div>
+        <div class="k"><span class="num"><span data-count="12.8" data-dec="1">12.8</span>%</span><span class="mono"><span class="en">Click-through rate</span><span class="id">Click-through rate</span></span></div>
+        <div class="k" style="grid-column:1/-1"><span class="num" data-count="2619">2,619</span><span class="mono"><span class="en">Subscribers gained</span><span class="id">Subscriber bertambah</span></span></div>
+        <div class="hl">
+          <span class="mono lbl"><span class="en">Grand Final stream alone</span><span class="id">Stream Grand Final saja</span></span>
+          <div><span class="num" data-count="153137">153,137</span><br><span class="mono"><span class="en">Views</span><span class="id">Views</span></span></div>
+          <div><span class="num" data-count="11808.4" data-dec="1">11,808.4</span><br><span class="mono"><span class="en">Watch hours</span><span class="id">Jam tonton</span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 UPRISING -->
+<section class="slide s-up" id="uprising" data-ch="2" data-sec-en="02 · Dire Battle" data-sec-id="02 · Dire Battle">
+  <div class="bg"></div>
+  <canvas class="lines" data-lines data-tone="gold"></canvas>
+  <div class="inner">
+    <div class="eyebrow mono rv"><b>09</b><span class="en">Next up</span><span class="id">Selanjutnya</span></div>
+    <div class="up">
+      <div style="display:grid;gap:22px;min-width:0">
+        <h2 class="rv" style="--d:1">Dire Battle <em>Uprising 1</em></h2>
+        <p class="rv" style="--d:2;color:var(--mute);max-width:52ch"><span class="en">Built for young players and open to everyone: rising talent, veterans who never got their shot, and casual teams. No age limit. The best teams move on through the circuit.</span><span class="id">Dibuat untuk pemain muda dan terbuka untuk semua: talenta baru, veteran yang belum dapat kesempatan, dan tim kasual. Tanpa batas umur. Tim terbaik lanjut di sirkuit.</span></p>
+      <dl class="rv" style="--d:3">
+        <div><dt class="mono"><span class="en">Registration</span><span class="id">Pendaftaran</span></dt><dd><span class="en">7–16 Nov 2026</span><span class="id">7–16 Nov 2026</span></dd></div>
+        <div><dt class="mono"><span class="en">Event</span><span class="id">Event</span></dt><dd><span class="en">20–22 Nov 2026</span><span class="id">20–22 Nov 2026</span></dd></div>
+        <div><dt class="mono">Prize pool</dt><dd>IDR <span data-n="10000000"></span></dd></div>
+        <div><dt class="mono"><span class="en">Format</span><span class="id">Format</span></dt><dd>Online</dd></div>
+        <div><dt class="mono"><span class="en">Key visual</span><span class="id">Key visual</span></dt><dd>Celestial Kingdom × Sky of Parahyangan</dd></div>
+      </dl>
+      </div>
+      <figure class="post up-poster rv" style="--d:2"><img src="assets/uprising-poster.webp" alt="Dire Battle Uprising registration poster" width="1080" height="1350" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 12 REACH -->
+<section class="slide" id="reach" data-ch="3" data-sec-en="03 · Partnership" data-sec-id="03 · Kemitraan">
+  <div class="inner">
+    <div class="eyebrow mono rv"><b>10</b><span class="en">Audience &amp; reach</span><span class="id">Audiens &amp; jangkauan</span></div>
+    <div class="reach">
+      <section class="acct rv" style="--c:var(--red);--d:1">
+        <header><h3>@direbornesports</h3><span class="mono">Instagram · 1 Jun – 9 Nov 2026</span></header>
+        <div class="kgrid">
+          <div class="lead"><span class="num" data-count="1.6" data-dec="1" data-suf="M">1.6M</span><span class="mono">Views</span></div>
+          <div><span class="num" data-count="110.6" data-dec="1" data-suf="K">110.6K</span><span class="mono">Reach</span></div>
+          <div><span class="num" data-count="44.6" data-dec="1" data-suf="K">44.6K</span><span class="mono"><span class="en">Interactions</span><span class="id">Interaksi</span></span></div>
+          <div><span class="num" data-count="65.8" data-dec="1" data-suf="K">65.8K</span><span class="mono"><span class="en">Profile visits</span><span class="id">Kunjungan profil</span></span></div>
+          <div><span class="num" data-count="3" data-suf="K">3K</span><span class="mono">Follows</span></div>
+          <div><span class="num" data-count="789">789</span><span class="mono"><span class="en">Link clicks</span><span class="id">Klik link</span></span></div>
+        </div>
+      </section>
+      <section class="acct rv" style="--c:var(--green);--d:2">
+        <header><h3>@direbattle</h3><span class="mono">Instagram · 1 Jun – 10 Nov 2026</span></header>
+        <div class="kgrid">
+          <div class="lead"><span class="num" data-count="596.4" data-dec="1" data-suf="K">596.4K</span><span class="mono">Views</span></div>
+          <div><span class="num" data-count="82.9" data-dec="1" data-suf="K">82.9K</span><span class="mono">Viewers</span></div>
+          <div><span class="num" data-count="14.7" data-dec="1" data-suf="K">14.7K</span><span class="mono"><span class="en">Interactions</span><span class="id">Interaksi</span></span></div>
+          <div><span class="num" data-count="16.7" data-dec="1" data-suf="K">16.7K</span><span class="mono"><span class="en">Profile visits</span><span class="id">Kunjungan profil</span></span></div>
+          <div><span class="num" data-count="896">896</span><span class="mono">Follows</span></div>
+          <div><span class="num" data-count="325">325</span><span class="mono"><span class="en">Link clicks</span><span class="id">Klik link</span></span></div>
+        </div>
+      </section>
+    </div>
+    <div class="channels rv" style="--d:3">
+      <span class="mono" style="color:var(--mute)"><span class="en">Also on</span><span class="id">Juga di</span></span>
+      <span>YouTube</span><span>X @direbornesports</span><span>Facebook /direbornesports</span><span>Threads</span><span>direborn.team</span>
+    </div>
+  </div>
+</section>
+
+<!-- 13 CONTENT -->
+<section class="slide" id="content" data-ch="3" data-sec-en="03 · Partnership" data-sec-id="03 · Kemitraan">
+  <div class="inner">
+    <div class="eyebrow mono rv"><b>11</b><span class="en">What we publish</span><span class="id">Yang kami publikasikan</span></div>
+    <div class="head rv" style="--d:1"><h2><span class="en">Two feeds, one standard.</span><span class="id">Dua feed, satu standar.</span></h2></div>
+    <div class="feeds">
+      <figure class="feed rv" style="--c:var(--red);--d:2"><img src="assets/feed-direborn.webp" alt="Direborn Esports Instagram feed" width="1400" height="746" loading="lazy">
+        <figcaption><b>@direbornesports</b><span class="mono"><span class="en">Team · match days, results, players</span><span class="id">Tim · match day, hasil, pemain</span></span></figcaption></figure>
+      <figure class="feed rv" style="--c:var(--green);--d:3"><img src="assets/feed-direbattle.webp" alt="Dire Battle Instagram feed" width="1394" height="747" loading="lazy">
+        <figcaption><b>@direbattle</b><span class="mono"><span class="en">Circuit · key visuals, stats, brackets</span><span class="id">Sirkuit · key visual, statistik, bracket</span></span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 14 PRODUCTION -->
+<section class="slide" id="production" data-ch="3" data-sec-en="03 · Partnership" data-sec-id="03 · Kemitraan">
+  <div class="inner">
+    <div class="eyebrow mono rv"><b>12</b><span class="en">In-house production</span><span class="id">Produksi in-house</span></div>
+    <div class="prod">
+      <div style="display:grid;gap:26px">
+        <div class="head rv" style="--d:1"><h2><span class="en">We make it ourselves, from broadcast to feed.</span><span class="id">Semua kami buat sendiri, dari broadcast sampai feed.</span></h2>
+          <p><span class="en">A partner's integration is produced by the same team that runs our streams and content, so it looks native, not pasted on.</span><span class="id">Integrasi partner dikerjakan tim yang sama yang menjalankan stream dan konten kami, jadi terasa menyatu, bukan sekadar ditempel.</span></p></div>
+        <div class="cols">
+          <div class="col rv" style="--d:2"><h3>Broadcast</h3><ul>
+            <li><span class="en">Custom Major-style draft overlay</span><span class="id">Overlay draft custom ala Major</span></li>
+            <li><span class="en">Live stats &amp; bracket</span><span class="id">Statistik &amp; bracket live</span></li>
+            <li><span class="en">Delayed player cams</span><span class="id">Player cam dengan delay</span></li>
+            <li><span class="en">Multi-cam with casters</span><span class="id">Multi-cam bersama caster</span></li></ul></div>
+          <div class="col rv" style="--d:3"><h3>Creative</h3><ul>
+            <li>Graphic design</li><li>Video &amp; motion</li><li>Social media</li><li><span class="en">Clipping</span><span class="id">Clipper</span></li></ul></div>
+        </div>
+      </div>
+      <div class="shots rv" style="--d:2">
+        <img src="assets/still_42.jpg" alt="Streaming desk with monitors" loading="lazy">
+        <img src="assets/still_26.jpg" alt="Direborn lounge" loading="lazy">
+        <img src="assets/still_50.jpg" alt="Gaming peripherals on a red desk mat" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 15 ROADMAP -->
+<section class="slide" id="roadmap" data-ch="3" data-sec-en="03 · Partnership" data-sec-id="03 · Kemitraan">
+  <div class="inner">
+    <div class="eyebrow mono rv"><b>13</b><span class="en">Where we're going</span><span class="id">Arah kami</span></div>
+    <div class="head rv" style="--d:1"><h2><span class="en">From content to the crowd.</span><span class="id">Dari konten sampai ke penonton.</span></h2></div>
+    <div class="road">
+      <div class="step rv" style="--d:2"><span class="mono">Now</span><h3><span class="en">Content activation</span><span class="id">Aktivasi konten</span></h3><p><span class="en">Instagram content and Dire Battle streams.</span><span class="id">Konten Instagram dan stream Dire Battle.</span></p></div>
+      <div class="step rv" style="--d:3"><span class="mono">Next</span><h3>YouTube</h3><p><span class="en">Long-form vlogs, mic checks, challenges and quizzes, clipped into shorts for IG, TikTok and YouTube.</span><span class="id">Video panjang: vlog, mic check, challenge dan kuis, lalu dipotong jadi short untuk IG, TikTok dan YouTube.</span></p></div>
+      <div class="step rv" style="--d:4"><span class="mono">Then</span><h3>Merchandise</h3><p><span class="en">The team jersey grows into a casual-wear catalog.</span><span class="id">Jersey tim berkembang jadi katalog casual wear.</span></p></div>
+      <div class="step rv" style="--d:5"><span class="mono">Then</span><h3><span class="en">Content diversification</span><span class="id">Diversifikasi konten</span></h3><p><span class="en">Talent and brand ambassadors reaching F&amp;B, daily-life and fun content.</span><span class="id">Talent dan brand ambassador masuk ke konten F&amp;B, keseharian dan hiburan.</span></p></div>
+      <div class="step rv" style="--d:6"><span class="mono">Then</span><h3><span class="en">Offline events</span><span class="id">Event offline</span></h3><p><span class="en">Dota 2 activations: watch parties, meet &amp; greets.</span><span class="id">Aktivasi Dota 2: nobar, meet &amp; greet.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 16 PARTNER -->
+<section class="slide" id="partner" data-ch="3" data-sec-en="03 · Partnership" data-sec-id="03 · Kemitraan">
+  <div class="inner">
+    <div class="eyebrow mono rv"><b>14</b><span class="en">Ways to partner</span><span class="id">Bentuk kerja sama</span></div>
+    <div class="head rv" style="--d:1"><h2><span class="en">No fixed packages. We build it around your brand.</span><span class="id">Tanpa paket baku. Kami susun sesuai brand Anda.</span></h2></div>
+    <div class="ways">
+      <article class="way rv" style="--d:2"><span class="mono">01</span><h3><span class="en">Team partner</span><span class="id">Partner tim</span></h3><ul>
+        <li><span class="en">Jersey and apparel placement</span><span class="id">Logo di jersey dan apparel</span></li><li><span class="en">Player content</span><span class="id">Konten pemain</span></li><li><span class="en">Match-day posts</span><span class="id">Post match day</span></li></ul></article>
+      <article class="way rv" style="--d:3"><span class="mono">02</span><h3><span class="en">Tournament partner</span><span class="id">Partner turnamen</span></h3><ul>
+        <li><span class="en">Dire Battle naming or presenting rights</span><span class="id">Naming atau presenting Dire Battle</span></li><li><span class="en">Broadcast segments and overlays</span><span class="id">Segmen dan overlay broadcast</span></li><li><span class="en">Prize pool support</span><span class="id">Dukungan prize pool</span></li></ul></article>
+      <article class="way rv" style="--d:4"><span class="mono">03</span><h3><span class="en">Content partner</span><span class="id">Partner konten</span></h3><ul>
+        <li><span class="en">Branded YouTube series</span><span class="id">Seri YouTube ber-brand</span></li><li><span class="en">Short-form integrations</span><span class="id">Integrasi short-form</span></li><li><span class="en">Product reviews by our players</span><span class="id">Review produk oleh pemain</span></li></ul></article>
+      <article class="way rv" style="--d:5"><span class="mono">04</span><h3><span class="en">Product &amp; barter</span><span class="id">Produk &amp; barter</span></h3><ul>
+        <li><span class="en">Gear for the team and studio</span><span class="id">Gear untuk tim dan studio</span></li><li><span class="en">Prizes for Dire Battle winners</span><span class="id">Hadiah untuk pemenang Dire Battle</span></li><li><span class="en">Offline activation support</span><span class="id">Dukungan aktivasi offline</span></li></ul></article>
+    </div>
+  </div>
+</section>
+
+<!-- 17 CONTACT -->
+<section class="slide end" id="contact" data-ch="3" data-sec-en="Contact" data-sec-id="Kontak">
+  <canvas class="lines" data-lines></canvas>
+  <div class="inner">
+    <span class="mono rv"><span class="en">Let's talk</span><span class="id">Mari ngobrol</span></span>
+    <h2 class="rv" style="--d:1"><span class="en">Let's build the next chapter together.</span><span class="id">Mari bangun babak berikutnya bersama.</span></h2>
+    <div class="contact rv" style="--d:2">
+      <div><span class="mono"><span class="en">Contact</span><span class="id">Kontak</span></span><b class="todo">[Name · Phone]</b></div>
+      <div><span class="mono">Email</span><b class="todo">[email]</b></div>
+      <div><span class="mono">Web</span><b>direborn.team</b></div>
+    </div>
+    <span class="mono rv" style="--d:3">Instagram @direbornesports · @direbattle · X @direbornesports</span>
+  </div>
+</section>
+
+</main>
+
+<nav class="chrome" aria-label="Slide controls">
+  <span class="mono sec" id="sec"></span>
+  <div class="lang" role="group" aria-label="Language">
+    <button class="btn" type="button" id="lang-en" data-l="en" aria-pressed="true">EN</button>
+    <button class="btn" type="button" id="lang-id" data-l="id" aria-pressed="false">ID</button>
+  </div>
+  <span class="mono count" id="count">01 / 17</span>
+  <button class="btn" type="button" id="prev" aria-label="Previous slide">←</button>
+  <button class="btn" type="button" id="next" aria-label="Next slide">→</button>
+</nav>
+
+<script>
+(function(){
+  const deck=document.getElementById('deck');
+  const slides=[...document.querySelectorAll('.slide')];
+  const bar=document.getElementById('bar'), sec=document.getElementById('sec'), count=document.getElementById('count'), tc=document.getElementById('tc');
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let i=0, lang='en';
+  try{const l=localStorage.getItem('db-lang'); if(l==='id'||l==='en') lang=l;}catch(e){}
+
+  /* ---- number formatting per language ---- */
+  const loc=()=>lang==='id'?'id-ID':'en-US';
+  const fmt=(v,dec)=>v.toLocaleString(loc(),{minimumFractionDigits:dec,maximumFractionDigits:dec});
+  function paintStatic(){
+    document.querySelectorAll('[data-n]').forEach(el=>el.textContent=fmt(+el.dataset.n,0));
+    document.querySelectorAll('[data-m]').forEach(el=>{const [y,m]=el.dataset.m.split('-');el.textContent=new Date(+y,+m-1,1).toLocaleString(loc(),{month:'short',year:'numeric'});});
+    document.querySelectorAll('[data-count]').forEach(el=>el.textContent=fmt(+el.dataset.count,+(el.dataset.dec||0))+(el.dataset.suf||''));
+  }
+  function countUp(root){
+    if(reduce) return;
+    root.querySelectorAll('[data-count]').forEach(el=>{
+      const to=+el.dataset.count, dec=+(el.dataset.dec||0), suf=el.dataset.suf||''; const t0=performance.now(), dur=1400;
+      (function step(t){const p=Math.min(1,(t-t0)/dur), e=1-Math.pow(1-p,4);
+        el.textContent=fmt(p<1?to*e:to,dec)+suf; if(p<1) requestAnimationFrame(step);})(t0);
+    });
+  }
+
+  function setLang(l){lang=l;deck.dataset.lang=l;document.documentElement.lang=l==='id'?'id':'en';
+    document.querySelectorAll('.lang .btn').forEach(b=>b.setAttribute('aria-pressed',b.dataset.l===l));
+    try{localStorage.setItem('db-lang',l);}catch(e){}
+    paintStatic(); label();}
+  function label(){const s=slides[i]; sec.textContent=s.dataset['sec'+(lang==='id'?'Id':'En')]||'';}
+
+  /* ---- thin linework (UNiiK-style rotating wire sphere) ---- */
+  const canvases=[...document.querySelectorAll('canvas[data-lines]')]; let raf=0;
+  function draw(t){
+    const s=slides[i]; const c=s.querySelector('canvas[data-lines]'); if(!c){raf=0;return;}
+    const r=c.getBoundingClientRect(), dpr=Math.min(2,devicePixelRatio||1);
+    if(c.width!==Math.round(r.width*dpr)){c.width=Math.round(r.width*dpr);c.height=Math.round(r.height*dpr);}
+    const g=c.getContext('2d'); g.setTransform(dpr,0,0,dpr,0,0); g.clearRect(0,0,r.width,r.height);
+    const gold=c.dataset.tone==='gold'; const cx=r.width*(r.width<860?.5:.74), cy=r.height*.5, R=Math.min(r.height*.42,r.width*.4);
+    const N=14, ph=reduce?0:t/5200;
+    for(let k=0;k<N;k++){const a=((k/N)+ph)%1*Math.PI; const rx=Math.abs(Math.cos(a))*R; const front=Math.sin(a);
+      g.beginPath(); g.ellipse(cx,cy,Math.max(rx,.5),R,0,0,Math.PI*2);
+      g.strokeStyle=gold?`rgba(199,162,70,${.12+.28*(front)})`:`rgba(218,33,48,${.12+.3*(front)})`; g.lineWidth=1; g.stroke();}
+    g.beginPath(); g.arc(cx,cy,R,0,Math.PI*2); g.strokeStyle=gold?'rgba(199,162,70,.45)':'rgba(218,33,48,.5)'; g.stroke();
+    if(!reduce) raf=requestAnimationFrame(draw); else raf=0;
+  }
+
+  /* ---- timecode (video-slate detail) ---- */
+  const start=performance.now();
+  setInterval(()=>{const s=(performance.now()-start)/1000; const f=Math.floor((s%1)*24);
+    tc.textContent=[Math.floor(s/3600),Math.floor(s/60)%60,Math.floor(s)%60,f].map(n=>String(n).padStart(2,'0')).join(':');},1000/24);
+
+  const vid=document.getElementById('coverVideo');
+  function go(n,fromHash){
+    n=Math.max(0,Math.min(slides.length-1,n));
+    slides[i].classList.remove('active'); i=n; const s=slides[i];
+    void s.offsetWidth; s.classList.add('active'); s.scrollTop=0;
+    bar.style.width=((i+1)/slides.length*100)+'%';
+    bar.style.background=s.dataset.ch==='2'?'var(--green)':'var(--red)';
+    count.textContent=String(i+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');
+    label();
+    countUp(s);
+    if(vid){ if(s.id==='cover'){const p=vid.play(); if(p&&p.catch)p.catch(()=>{});} else vid.pause(); }
+    cancelAnimationFrame(raf); raf=0; if(s.querySelector('canvas[data-lines]')) raf=requestAnimationFrame(draw);
+    if(!fromHash && location.hash!=='#'+s.id){try{history.replaceState(null,'','#'+s.id);}catch(e){location.hash=s.id;}}
+  }
+  const fromHash=()=>{const k=slides.findIndex(s=>'#'+s.id===location.hash); return k<0?0:k;};
+
+  document.getElementById('prev').addEventListener('click',()=>go(i-1));
+  document.getElementById('next').addEventListener('click',()=>go(i+1));
+  document.querySelectorAll('.lang .btn').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.l)));
+  addEventListener('keydown',e=>{
+    if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(i+1);}
+    else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(i-1);}
+    else if(e.key==='Home')go(0); else if(e.key==='End')go(slides.length-1);
+  });
+  /* swipe (horizontal only, so vertical scrolling inside a slide still works on phones) */
+  let sx=0,sy=0; deck.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
+  deck.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx, dy=e.changedTouches[0].clientY-sy;
+    if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.4) go(i+(dx<0?1:-1));},{passive:true});
+  addEventListener('hashchange',()=>{const k=fromHash(); if(k!==i) go(k,true);});
+
+  setLang(lang);
+  slides[0].classList.add('active');
+  go(fromHash(),true);
+})();
+</script>
+
+</body>
+</html>
