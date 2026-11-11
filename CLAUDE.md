@@ -49,7 +49,8 @@ reach, content, production, roadmap, partner, contact
 
 - Player IDs, exact spelling: Dreamocel, woMy, PotaT2, db-, dalul.
   Player photos (updated 11 Nov 2026, all standing with arms crossed) are named after the player:
-  `dreamocel.webp`, `womy.webp`, `potat2.webp`, `db.webp` (db-), `dalul.webp`. Framing per card via `--h/--x/--y`.
+  `dreamocel.webp`, `womy.webp`, `potat2.webp`, `db.webp` (db-, short hair, rectangular glasses),
+  `dalul.webp` (dalul, wavy hair, round glasses). Framing per card via `--h/--x/--y`.
 - Write **Direbattle** as one word everywhere (never "Direbattle").
 - No company name (PT Prosperity Unggul Abadi) on the slides for now.
 - Direbattle Pro Circuit order: Cup → League (Liga) → National (Nasional, a LAN/offline tournament) → International.
@@ -76,7 +77,7 @@ reach, content, production, roadmap, partner, contact
 
 - Direbattle events, teams, prize pools, champions: direborn.team/tournaments.
 - YouTube (Cup content, 12 Oct – 8 Nov 2026) and Instagram (1 Jun – 9/10 Nov 2026): owner's analytics screenshots.
-- Track record: EPL SEA 19 Grand Champion; Lunar Horse Trophy champion (Grand Final 3–1 vs Mentality Monsters).
+- Track record: EPL SEA 19 Grand Champion (Grand Final 3–0 vs Royal Bear); Lunar Horse Trophy champion (Grand Final 3–1 vs Mentality Monsters).
 
 ## Open items
 
@@ -85,7 +86,6 @@ reach, content, production, roadmap, partner, contact
   sounds found through Openverse (Freesound, all CC0), trimmed and peak-normalized to -3 dB. Owner has not heard them yet.
 - Music `assets/audio/bgm.mp3` is an 88s loop cut from a lo-fi "timer" track; licence for public use unconfirmed.
 - Mix Series: 8 teams, champion Faceless Void. Showdown 1v1 Mid: 8 entrants (owner, 10 Nov 2026).
-- Missing data: EPL SEA 19 final opponent/score.
 - Not on slides yet: player roles, follower counts per platform, audience demographics.
 - Motion and audio have been syntax-checked and screenshot-tested (1440x810, iPhone 13 390x844, 844x390 landscape,
   820x1180 tablet) but not watched or heard on a real device.
