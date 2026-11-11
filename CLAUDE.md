@@ -1,6 +1,6 @@
 # Direborn Company Profile — project notes
 
-Animated, bilingual (EN/ID) web deck for Direborn Esports and its tournament product, Dire Battle.
+Animated, bilingual (EN/ID) web deck for Direborn Esports and its tournament product, Direbattle.
 It is a company profile for prospective brand partners, not a priced sponsorship pitch.
 
 ## How it is built
@@ -24,7 +24,7 @@ It is a company profile for prospective brand partners, not a priced sponsorship
   These carry `data-vt="eyebrow|title|mark|dbmark"` and are morphed between slides with the
   View Transitions API (`go()` in the script). Elements shared by both slides get class `vt-on`,
   which disables their own entrance animation.
-- Chapters via `data-ch`: 0 opening, 1 Direborn (red), 2 Dire Battle (green accent), 3 partnership.
+- Chapters via `data-ch`: 0 opening, 1 Direborn (red), 2 Direbattle (green accent), 3 partnership.
 - Backdrop: WebGL fragment shader on `#fx` (smoke + embers), tinted by chapter, pulses on slide change.
 - Language: `<span class="en">` / `<span class="id">` pairs, toggled by `html[lang]`.
   Numbers use `data-n` (static), `data-count` (count-up), `data-m` (month) and are formatted per locale.
@@ -36,7 +36,7 @@ It is a company profile for prospective brand partners, not a priced sponsorship
   `--dx` (1 forward, -1 back) makes entrances travel in the direction of navigation; `.way` cards tilt (`.tilt`);
   posters in `.strip` open in `#lightbox`.
 - Sound: `#bgm` music loop plus three cues in `assets/audio/`, mapped in `slideSound()`: `sfx-whoosh` on slide change,
-  `sfx-deep` instead when the chapter (`data-ch`) changes, `sfx-impact` on the manifesto and Dire Battle reveals.
+  `sfx-deep` instead when the chapter (`data-ch`) changes, `sfx-impact` on the manifesto and Direbattle reveals.
   No hover, click or navigator sounds. Sources and licences: `assets/audio/credits.txt`.
   On by default, starts on the first interaction, remembered in localStorage.
 
@@ -49,11 +49,16 @@ reach, content, production, roadmap, partner, contact
 
 - Player IDs, exact spelling: Dreamocel, woMy, PotaT2, db-, dalul.
   Photo files are named the wrong way round: **db- uses `dalul.webp` (sitting), dalul uses `db.webp` (pointing)**.
+- Write **Direbattle** as one word everywhere (never "Direbattle").
+- No company name (PT Prosperity Unggul Abadi) on the slides for now.
+- Direbattle Pro Circuit order: Cup → League (Liga) → National (Nasional, a LAN/offline tournament) → International.
+  Open Series and Uprising are the qualifiers into the Cup; Mix Series and Showdown 1v1 Mid are side events.
+- IDC (Indonesian Dota 2 Community) appears small, as a card on the reach slide (`.idc`, links to its Instagram).
 - Cover tagline is just "Indonesian Dota 2." Manifesto: "Born to Regenerate. Directed to Dominate."
 - Manifesto mark assembles from four shards; no shadow-trail effect; no text-scramble effect anywhere.
 - No wipe/stinger between slides; transitions must feel seamless (shared elements glide).
 - Track record title is "Our first year."; the champion post is leftmost and larger in each row.
-- Events table order: Showdown 1v1 Mid sits before Dire Battle Cup.
+- Events table order: Showdown 1v1 Mid sits before Direbattle Cup.
 - "Delayed player cams" was removed from the production slide.
 - Hovering near the next/prev buttons must not open the slide navigator.
 - Data must be exact and unchanged; highlight a stat only when it is genuinely notable.
@@ -61,14 +66,14 @@ reach, content, production, roadmap, partner, contact
 
 ## Broadcast slide
 
-- `broadcast` (after `cup`): Dire Battle broadcast segments. Match & panel (live draft overlay), Kuis Kematian
+- `broadcast` (after `cup`): Direbattle broadcast segments. Match & panel (live draft overlay), Kuis Kematian
   (questions drawn from a fishbowl, panelist must answer), Tebak Skill (spin-the-wheel guessing game),
   Tier List Kuliner Kota Bandung (hosted by a Dedi Mulyadi parody character; panelists taste and rank S to C).
   Images `assets/bc-*.webp` are the owner's broadcast screenshots; tiles open in the lightbox.
 
 ## Data sources
 
-- Dire Battle events, teams, prize pools, champions: direborn.team/tournaments.
+- Direbattle events, teams, prize pools, champions: direborn.team/tournaments.
 - YouTube (Cup content, 12 Oct – 8 Nov 2026) and Instagram (1 Jun – 9/10 Nov 2026): owner's analytics screenshots.
 - Track record: EPL SEA 19 Grand Champion; Lunar Horse Trophy champion (Grand Final 3–1 vs Mentality Monsters).
 
