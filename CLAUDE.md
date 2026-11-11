@@ -51,7 +51,7 @@ reach, content, production, roadmap, partner, contact
   Player photos (updated 11 Nov 2026, all standing with arms crossed) are named after the player:
   `dreamocel.webp`, `womy.webp`, `potat2.webp`, `db.webp` (db-, short hair, rectangular glasses),
   `dalul.webp` (dalul, wavy hair, round glasses). Framing per card via `--h/--x/--y`.
-- Write **Direbattle** as one word everywhere (never "Direbattle").
+- Write **Direbattle** as one word everywhere (never split into "Dire Battle").
 - No company name (PT Prosperity Unggul Abadi) on the slides for now.
 - Direbattle Pro Circuit order: Cup → League (Liga) → National (Nasional, a LAN/offline tournament) → International.
   Open Series and Uprising are the qualifiers into the Cup; Mix Series and Showdown 1v1 Mid are side events.
@@ -81,7 +81,8 @@ reach, content, production, roadmap, partner, contact
 
 ## Open items
 
-- Contact slide still has placeholders: `[Name · Phone]`, `[email]`.
+- Contact slide still has placeholders: `[Name · Phone]`, `[email]`. It ends with clickable social buttons (`.socials`):
+  Instagram @direbornesports, Threads @direbornesports, Threads @direbattle, YouTube @Direborn.Esports.
 - Sound effects: the uisfx UI cues the owner found "weird" were removed (10 Nov 2026). Replaced by three recorded
   sounds found through Openverse (Freesound, all CC0), trimmed and peak-normalized to -3 dB. Owner has not heard them yet.
 - Music `assets/audio/bgm.mp3` is an 88s loop cut from a lo-fi "timer" track; licence for public use unconfirmed.
