@@ -180,7 +180,7 @@ body.nogl{background:radial-gradient(70% 80% at 20% 100%,rgba(218,33,48,.16),tra
 .ph{position:relative;flex:1;min-height:0;overflow:hidden;background:linear-gradient(180deg,rgba(239,232,227,.02) 20%,rgba(218,33,48,.22));border-bottom:2px solid var(--red)}
 .ph::before{content:attr(data-idx);position:absolute;top:.8rem;left:.9rem;z-index:2;font-family:var(--f-mono);font-size:var(--t-label);color:var(--mute)}
 .ph::after{content:"";position:absolute;inset:60% 0 0 0;background:linear-gradient(transparent,rgba(12,9,8,.9));pointer-events:none}
-.ph img{position:absolute;top:2.4rem;left:50%;height:var(--h);width:auto;max-width:none;translate:var(--x) 0;transform-origin:50% 12%;transition:scale .6s var(--ease);filter:drop-shadow(0 1rem 2rem rgba(0,0,0,.6))}
+.ph img{position:absolute;top:2.4rem;left:50%;height:var(--h);width:auto;max-width:none;translate:var(--x) var(--y,0);transform-origin:50% 12%;transition:scale .6s var(--ease);filter:drop-shadow(0 1rem 2rem rgba(0,0,0,.6))}
 .player:hover .ph img{scale:1.06}
 .nm{padding-top:1rem;display:grid;gap:.2rem}
 .nm b{font-family:var(--f-display);font-size:2.3rem;font-weight:700;line-height:1}
@@ -747,7 +747,7 @@ tbody tr:hover{background:rgba(239,232,227,.05)}
             <div><dt class="mono">Game</dt><dd>Dota 2</dd></div>
           </dl>
         </div>
-        <figure><img src="assets/team.webp" alt="The five Direborn players: Dreamocel, db-, PotaT2, dalul and woMy"><figcaption class="mono">Dreamocel · db- · PotaT2 · dalul · woMy</figcaption></figure>
+        <figure><img src="assets/team.webp" alt="The five Direborn players: db-, Dreamocel, PotaT2, woMy and dalul"><figcaption class="mono">db- · Dreamocel · PotaT2 · woMy · dalul</figcaption></figure>
       </div>
     </div>
   </div>
@@ -790,11 +790,11 @@ tbody tr:hover{background:rgba(239,232,227,.05)}
     <div class="eyebrow mono rv" data-vt="eyebrow"><b>03</b><span class="en">The roster</span><span class="id">Roster</span></div>
     <div class="body">
       <div class="roster">
-        <div class="player" style="--d:0"><div class="ph" data-idx="01" style="--h:45.6rem;--x:-49.6%"><img src="assets/dreamocel.webp" alt="Dreamocel"></div><div class="nm"><b>Dreamocel</b><span class="mono">Randy Sapoetra</span></div></div>
-        <div class="player" style="--d:1"><div class="ph" data-idx="02" style="--h:48.6rem;--x:-46.9%"><img src="assets/womy.webp" alt="woMy"></div><div class="nm"><b>woMy</b><span class="mono">Said Romy</span></div></div>
-        <div class="player" style="--d:2"><div class="ph" data-idx="03" style="--h:53rem;--x:-44.9%"><img src="assets/potat2.webp" alt="PotaT2"></div><div class="nm"><b>PotaT2</b><span class="mono">Noel Pinot</span></div></div>
-        <div class="player" style="--d:3"><div class="ph" data-idx="04" style="--h:38rem;--x:-51.8%"><img src="assets/dalul.webp" alt="db-"></div><div class="nm"><b>db-</b><span class="mono">Daud Budiawan</span></div></div>
-        <div class="player" style="--d:4"><div class="ph" data-idx="05" style="--h:37.4rem;--x:-53.4%"><img src="assets/db.webp" alt="dalul"></div><div class="nm"><b>dalul</b><span class="mono">Abdalla Putra Afemi</span></div></div>
+        <div class="player" style="--d:0"><div class="ph" data-idx="01" style="--h:49.1rem;--x:-37.9%;--y:-1.2%"><img src="assets/dreamocel.webp" alt="Dreamocel"></div><div class="nm"><b>Dreamocel</b><span class="mono">Randy Sapoetra</span></div></div>
+        <div class="player" style="--d:1"><div class="ph" data-idx="02" style="--h:52rem;--x:-47.6%;--y:-.8%"><img src="assets/womy.webp" alt="woMy"></div><div class="nm"><b>woMy</b><span class="mono">Said Romy</span></div></div>
+        <div class="player" style="--d:2"><div class="ph" data-idx="03" style="--h:55.5rem;--x:-48.6%;--y:-7.3%"><img src="assets/potat2.webp" alt="PotaT2"></div><div class="nm"><b>PotaT2</b><span class="mono">Noel Pinot</span></div></div>
+        <div class="player" style="--d:3"><div class="ph" data-idx="04" style="--h:45.9rem;--x:-51.7%;--y:-.4%"><img src="assets/db.webp" alt="db-"></div><div class="nm"><b>db-</b><span class="mono">Daud Budiawan</span></div></div>
+        <div class="player" style="--d:4"><div class="ph" data-idx="05" style="--h:55.3rem;--x:-53%;--y:-8.4%"><img src="assets/dalul.webp" alt="dalul"></div><div class="nm"><b>dalul</b><span class="mono">Abdalla Putra Afemi</span></div></div>
       </div>
     </div>
   </div>

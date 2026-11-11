@@ -48,7 +48,8 @@ reach, content, production, roadmap, partner, contact
 ## Decisions already made by the owner (keep these)
 
 - Player IDs, exact spelling: Dreamocel, woMy, PotaT2, db-, dalul.
-  Photo files are named the wrong way round: **db- uses `dalul.webp` (sitting), dalul uses `db.webp` (pointing)**.
+  Player photos (updated 11 Nov 2026, all standing with arms crossed) are named after the player:
+  `dreamocel.webp`, `womy.webp`, `potat2.webp`, `db.webp` (db-), `dalul.webp`. Framing per card via `--h/--x/--y`.
 - Write **Direbattle** as one word everywhere (never "Direbattle").
 - No company name (PT Prosperity Unggul Abadi) on the slides for now.
 - Direbattle Pro Circuit order: Cup → League (Liga) → National (Nasional, a LAN/offline tournament) → International.
