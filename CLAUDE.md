@@ -88,6 +88,11 @@ reach, content, production, roadmap, partner, contact
   sounds found through Openverse (Freesound, all CC0), trimmed and peak-normalized to -3 dB. Owner has not heard them yet.
 - Music `assets/audio/bgm.mp3` is an 88s loop cut from a lo-fi "timer" track; licence for public use unconfirmed.
 - Mix Series: 8 teams, champion Faceless Void. Showdown 1v1 Mid: 8 entrants (owner, 10 Nov 2026).
+- Roster hover: each player card can show a "Career highlights" panel (top 5 results) on hover/focus/tap.
+  Data lives in the `ACH` object in the script ({p, e, y}); **all lists are empty until the owner supplies verified
+  results**, and an empty list shows nothing. Esports Earnings blocks automated reading. Note: Esports Earnings lists
+  full names Randy Muhammad Sapoetra, Syaid Muhammad Resky (woMy), Noel Pinot Prando Lafduti Malau (PotaT2);
+  the deck shows Randy Sapoetra, Said Romy, Noel Pinot (owner-supplied) — confirm with owner before changing.
 - Not on slides yet: player roles, follower counts per platform, audience demographics.
 - Motion and audio have been syntax-checked and screenshot-tested (1440x810, iPhone 13 390x844, 844x390 landscape,
   820x1180 tablet) but not watched or heard on a real device.
