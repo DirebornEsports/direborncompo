@@ -81,8 +81,8 @@ reach, content, production, roadmap, partner, contact
 
 ## Open items
 
-- Contact slide still has placeholders: `[Name · Phone]`, `[email]`. It ends with clickable social buttons (`.socials`):
-  Instagram @direbornesports, Threads @direbornesports, Threads @direbattle, YouTube @Direborn.Esports.
+- Contact slide still has placeholders: `[Name · Phone]`, `[email]`. It ends with minimal text links (`.socials`, no big buttons):
+  Direborn: Instagram, Threads, YouTube, X, Facebook, direborn.team. Direbattle: Instagram, Threads, X.
 - Sound effects: the uisfx UI cues the owner found "weird" were removed (10 Nov 2026). Replaced by three recorded
   sounds found through Openverse (Freesound, all CC0), trimmed and peak-normalized to -3 dB. Owner has not heard them yet.
 - Music `assets/audio/bgm.mp3` is an 88s loop cut from a lo-fi "timer" track; licence for public use unconfirmed.
