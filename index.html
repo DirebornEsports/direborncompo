@@ -387,7 +387,7 @@ tr.soon td{color:var(--mute)}
 /* ---------- 15 roadmap ---------- */
 .road{display:grid;grid-template-columns:repeat(5,1fr)}
 .step{position:relative;padding:2.2rem 1.6rem 0 0;display:grid;gap:.9rem;align-content:start;min-width:0}
-.step::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,var(--red),var(--gold));transform-origin:left}
+.step::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--red);transform-origin:left}
 .step::after{content:"";position:absolute;left:0;top:-.38rem;width:.85rem;height:.85rem;border-radius:50%;background:var(--ink);border:2px solid var(--red)}
 .step:first-child::after{background:var(--red);box-shadow:0 0 0 .4rem rgba(218,33,48,.2)}
 .step .mono{color:var(--gold)}
@@ -659,7 +659,7 @@ tbody tr:hover{background:rgba(239,232,227,.05)}
   .shots div:first-child{height:11rem}
   .road{grid-template-columns:minmax(0,1fr)}
   .step{padding:0 0 1.4rem 1.8rem}
-  .step::before{left:.36rem;right:auto;top:0;bottom:0;width:2px;height:auto;background:linear-gradient(var(--red),var(--gold));transform-origin:top}
+  .step::before{left:.36rem;right:auto;top:0;bottom:0;width:2px;height:auto;background:var(--red);transform-origin:top}
   .slide.active .step::before{animation-name:drawv}
   .step::after{top:.1rem;left:0}
   .step .no{display:none}
@@ -758,7 +758,7 @@ tbody tr:hover{background:rgba(239,232,227,.05)}
   <div class="ghost-wm" aria-hidden="true"><span>DIREBORN DIREBORN DIREBORN DIREBORN</span></div>
   <div class="sweep" aria-hidden="true"></div>
   <div class="st">
-    <span class="eyebrow mono rv" data-vt="eyebrow"><span class="en">What we stand for</span><span class="id">Yang kami pegang</span></span>
+    <span class="eyebrow mono rv" data-vt="eyebrow"><span class="en">What we stand for</span><span class="id">Prinsip kami</span></span>
     <div class="man">
       <div class="extrude" id="shards" data-vt="mark" aria-hidden="true">
         <img class="sh" data-k="1" src="assets/shard-1.webp" alt="">
@@ -768,7 +768,7 @@ tbody tr:hover{background:rgba(239,232,227,.05)}
       </div>
       <div class="man-text">
         <h1 data-vt="title"><span class="rv" style="--d:1">Born to</span><span class="g rv" style="--d:2">Regenerate.</span><span class="rv" style="--d:3">Directed to</span><span class="g rv" style="--d:4">Dominate.</span></h1>
-        <p class="rv" style="--d:6"><span class="en">We compete to win today, and we build the stage for whoever wins tomorrow.</span><span class="id">Kami bertanding untuk menang hari ini, dan membangun panggung untuk pemenang berikutnya.</span></p>
+        <p class="rv" style="--d:6"><span class="en">We compete to win today and build the stage for those who will win tomorrow.</span><span class="id">Kami bertanding untuk menang hari ini dan membangun panggung bagi para pemenang masa depan.</span></p>
       </div>
     </div>
   </div>
@@ -778,18 +778,18 @@ tbody tr:hover{background:rgba(239,232,227,.05)}
 <section class="slide" id="who" data-ch="1" data-sec-en="01 · Direborn" data-sec-id="01 · Direborn">
   <div class="st">
     <img class="chmark" data-vt="mark" src="assets/mark.webp" alt="" aria-hidden="true">
-    <div class="eyebrow mono rv" data-vt="eyebrow"><b>01</b><span class="en">Who we are</span><span class="id">Siapa kami</span></div>
+    <div class="eyebrow mono rv" data-vt="eyebrow"><b>01</b><span class="en">Who we are</span><span class="id">Tentang kami</span></div>
     <div class="body">
       <div class="who">
         <div class="head">
-          <h2 data-vt="title"><span class="en">An Indonesian Dota 2 team, built to win and to rebuild the scene.</span><span class="id">Tim Dota 2 Indonesia, dibangun untuk menang dan membangun ulang skena.</span></h2>
-          <p class="rv" style="--d:2"><span class="en">Direborn Esports was founded in 2026 with a five-man, all-Indonesian roster. We play to win, and everything we build around the team goes back into regenerating Indonesian Dota 2.</span><span class="id">Direborn Esports berdiri tahun 2026 dengan lima pemain, semuanya asli Indonesia. Kami main untuk menang, dan semua yang kami bangun di sekitar tim kembali untuk meregenerasi Dota 2 Indonesia.</span></p>
+          <h2 data-vt="title"><span class="en">An Indonesian Dota 2 team built to win and to revitalize the scene.</span><span class="id">Tim Dota 2 Indonesia yang dibangun untuk meraih kemenangan dan menghidupkan kembali skena.</span></h2>
+          <p class="rv" style="--d:2"><span class="en">Founded in 2026, Direborn Esports fields a five-player, all-Indonesian roster. We compete to win, and everything we build around the team is reinvested in regenerating Indonesian Dota 2.</span><span class="id">Didirikan pada 2026, Direborn Esports memiliki roster lima pemain yang seluruhnya berasal dari Indonesia. Kami bertanding untuk menang, dan semua yang kami bangun di sekitar tim kami kembalikan untuk regenerasi Dota 2 Indonesia.</span></p>
           <dl class="facts rv" style="--d:3">
-            <div><dt class="mono"><span class="en">Founded</span><span class="id">Berdiri</span></dt><dd>2026</dd></div>
+            <div><dt class="mono"><span class="en">Founded</span><span class="id">Didirikan</span></dt><dd>2026</dd></div>
             <div><dt class="mono">Game</dt><dd>Dota 2</dd></div>
           </dl>
         </div>
-        <figure><img src="assets/team.webp" alt="The five Direborn players: db-, Dreamocel, PotaT2, woMy and dalul"><figcaption class="mono">db- · Dreamocel · PotaT2 · woMy · dalul</figcaption></figure>
+        <figure><img src="assets/team.webp" alt="The five Direborn players: db-, Dreamocel, Pota2, womy and dalul"><figcaption class="mono">db- · Dreamocel · Pota2 · womy · dalul</figcaption></figure>
       </div>
     </div>
   </div>
@@ -799,7 +799,7 @@ tbody tr:hover{background:rgba(239,232,227,.05)}
 <section class="slide" id="engines" data-ch="1" data-sec-en="01 · Direborn" data-sec-id="01 · Direborn">
   <div class="st">
     <img class="chmark" data-vt="mark" src="assets/mark.webp" alt="" aria-hidden="true">
-    <div class="eyebrow mono rv" data-vt="eyebrow"><b>02</b><span class="en">Two engines</span><span class="id">Dua mesin</span></div>
+    <div class="eyebrow mono rv" data-vt="eyebrow"><b>02</b><span class="en">Two engines</span><span class="id">Dua mesin penggerak</span></div>
     <div class="body">
       <div class="engines">
         <article class="eng" style="--c:var(--red)">
@@ -807,8 +807,8 @@ tbody tr:hover{background:rgba(239,232,227,.05)}
           <span class="mono">Direborn Esports</span>
           <div class="verb"><span class="en">Compete</span><span class="id">Bertanding</span></div>
           <div>
-            <h3><span class="en">The pro team</span><span class="id">Tim pro</span></h3>
-            <p><span class="en">Our five-man roster, competing in Dota 2 for Indonesia and the SEA region.</span><span class="id">Roster lima pemain kami, bertanding di Dota 2 untuk Indonesia dan region SEA.</span></p>
+            <h3><span class="en">The professional team</span><span class="id">Tim profesional</span></h3>
+            <p><span class="en">Our five-player roster competes in Dota 2 for Indonesia and the Southeast Asian region.</span><span class="id">Roster lima pemain kami bertanding di Dota 2, mewakili Indonesia di kawasan Asia Tenggara.</span></p>
           </div>
         </article>
         <article class="eng" style="--c:var(--green)">
@@ -817,7 +817,7 @@ tbody tr:hover{background:rgba(239,232,227,.05)}
           <div class="verb"><span class="en">Develop</span><span class="id">Membina</span></div>
           <div>
             <h3><span class="en">The tournament circuit</span><span class="id">Sirkuit turnamen</span></h3>
-            <p><span class="en">Our own tournament series, built to find and grow the next generation of Indonesian pros.</span><span class="id">Seri turnamen kami sendiri, dibuat untuk menemukan dan membina generasi pro Indonesia berikutnya.</span></p>
+            <p><span class="en">Our own tournament series, designed to discover and develop the next generation of Indonesian professionals.</span><span class="id">Seri turnamen milik kami, dirancang untuk menemukan dan membina generasi pemain profesional Indonesia berikutnya.</span></p>
           </div>
         </article>
       </div>
@@ -832,9 +832,9 @@ tbody tr:hover{background:rgba(239,232,227,.05)}
     <div class="eyebrow mono rv" data-vt="eyebrow"><b>03</b><span class="en">The roster</span><span class="id">Roster</span></div>
     <div class="body">
       <div class="roster">
-        <div class="player" style="--d:0"><div class="ph" data-idx="01" style="--h:49.1rem;--x:-37.9%;--y:-1.2%"><img src="assets/dreamocel.webp" alt="Dreamocel"></div><div class="nm"><b>Dreamocel</b><span class="mono">Randy Sapoetra</span></div></div>
-        <div class="player" style="--d:1"><div class="ph" data-idx="02" style="--h:52rem;--x:-47.6%;--y:-.8%"><img src="assets/womy.webp" alt="woMy"></div><div class="nm"><b>woMy</b><span class="mono">Said Romy</span></div></div>
-        <div class="player" style="--d:2"><div class="ph" data-idx="03" style="--h:55.5rem;--x:-48.6%;--y:-7.3%"><img src="assets/potat2.webp" alt="PotaT2"></div><div class="nm"><b>PotaT2</b><span class="mono">Noel Pinot</span></div></div>
+        <div class="player" style="--d:0"><div class="ph" data-idx="01" style="--h:49.1rem;--x:-37.9%;--y:-1.2%"><img src="assets/dreamocel.webp" alt="Dreamocel"></div><div class="nm"><b>Dreamocel</b><span class="mono">Randy Muhammad Sapoetra</span></div></div>
+        <div class="player" style="--d:1"><div class="ph" data-idx="02" style="--h:52rem;--x:-47.6%;--y:-.8%"><img src="assets/womy.webp" alt="womy"></div><div class="nm"><b>womy</b><span class="mono">Said Muhammad Resky</span></div></div>
+        <div class="player" style="--d:2"><div class="ph" data-idx="03" style="--h:55.5rem;--x:-48.6%;--y:-7.3%"><img src="assets/potat2.webp" alt="Pota2"></div><div class="nm"><b>Pota2</b><span class="mono">Noel Pinot Prando Lafduti Malau</span></div></div>
         <div class="player" style="--d:3"><div class="ph" data-idx="04" style="--h:55.3rem;--x:-53%;--y:-8.4%"><img src="assets/db.webp" alt="db-"></div><div class="nm"><b>db-</b><span class="mono">Daud Budiawan</span></div></div>
         <div class="player" style="--d:4"><div class="ph" data-idx="05" style="--h:45.9rem;--x:-51.7%;--y:-.4%"><img src="assets/dalul.webp" alt="dalul"></div><div class="nm"><b>dalul</b><span class="mono">Abdalla Putra Afemi</span></div></div>
       </div>
@@ -851,7 +851,7 @@ tbody tr:hover{background:rgba(239,232,227,.05)}
       <div class="head"><h2 data-vt="title"><span class="en">Our first year.</span><span class="id">Tahun pertama kami.</span></h2></div>
       <div class="runs">
         <div class="run rv" style="--d:2">
-          <div class="run-meta"><div class="pl">1<sup>st</sup></div><div><span class="mono">Grand Champion</span><h3>EPL SEA 19</h3><span class="mono">Grand Final · 3–0 vs Royal Bear</span></div></div>
+          <div class="run-meta"><div class="pl">1<sup>st</sup></div><div><span class="mono"><span class="en">Grand Champion</span><span class="id">Juara</span></span><h3>EPL SEA 19</h3><span class="mono">Grand Final · 3–0 vs Royal Bear</span></div></div>
           <div class="strip">
             <img style="--d:0" src="assets/epl-bounce-back.webp" alt="Joining EPL 19: Time to Bounce Back">
             <img style="--d:1" src="assets/epl-matchday.webp" alt="EPL match day vs Team Nemesis Academy, 29 Oct 2026">
@@ -886,10 +886,10 @@ tbody tr:hover{background:rgba(239,232,227,.05)}
       <img class="dbmark" data-vt="dbmark" src="assets/direbattle-mark.webp" alt="Direbattle logo" width="501" height="625">
       <div style="display:grid;gap:1rem;min-width:0">
         <h1 data-vt="title">Direbattle</h1>
-        <span class="mono rv" style="--d:9;color:var(--gold)">Pro Circuit · by Direborn Esports</span>
+        <span class="mono rv" style="--d:9;color:var(--gold)"><span class="en">Pro Circuit · by Direborn Esports</span><span class="id">Pro Circuit · oleh Direborn Esports</span></span>
       </div>
     </div>
-    <p class="lead rv" style="--d:11"><span class="en">Growing the next generation of Indonesian Dota 2 pros.</span><span class="id">Membina generasi pro Dota 2 Indonesia berikutnya.</span></p>
+    <p class="lead rv" style="--d:11"><span class="en">Developing the next generation of Indonesian Dota 2 professionals.</span><span class="id">Membina generasi pemain profesional Dota 2 Indonesia berikutnya.</span></p>
   </div>
 </section>
 
@@ -900,41 +900,41 @@ tbody tr:hover{background:rgba(239,232,227,.05)}
     <div class="eyebrow mono rv" data-vt="eyebrow"><b>05</b>Direbattle Pro Circuit</div>
     <div class="body">
       <div class="c-head">
-        <h2 data-vt="title"><span class="en">Talent needs a path, not just a pool.</span><span class="id">Talenta butuh jalur, bukan sekadar kumpulan pemain.</span></h2>
-        <p class="rv" style="--d:2"><span class="en">Indonesia has plenty of Dota 2 players. What it lacks is a regular, visible route from open tournaments to the pro stage. Direbattle is that route.</span><span class="id">Indonesia punya banyak pemain Dota 2. Yang kurang adalah jalur yang rutin dan jelas dari turnamen terbuka ke panggung pro. Direbattle adalah jalur itu.</span></p>
+        <h2 data-vt="title"><span class="en">Talent needs a pathway, not just a pool.</span><span class="id">Talenta membutuhkan jalur, bukan sekadar wadah.</span></h2>
+        <p class="rv" style="--d:2"><span class="en">Indonesia has no shortage of Dota 2 talent. What is missing is a consistent, visible pathway from open tournaments to the professional stage. Direbattle provides that pathway.</span><span class="id">Indonesia tidak kekurangan talenta Dota 2. Yang belum tersedia adalah jalur yang konsisten dan jelas dari turnamen terbuka menuju panggung profesional. Direbattle hadir sebagai jalur tersebut.</span></p>
       </div>
       <div class="circuit">
         <div class="stage done rv" style="--d:0;--fill:1">
           <span class="node"></span><span class="no">01</span>
           <h3>Direbattle<br>Cup</h3>
-          <p><span class="en">Winners and runners-up of the Open Series qualifiers. 8 teams.</span><span class="id">Juara 1 dan 2 dari kualifikasi Open Series. 8 tim.</span></p>
+          <p><span class="en">Open to the winners and runners-up of the Open Series qualifiers. 8 teams.</span><span class="id">Diikuti juara 1 dan 2 dari kualifikasi Open Series. 8 tim.</span></p>
           <span class="pill on"><span class="en">Completed · Oct 2026</span><span class="id">Selesai · Okt 2026</span></span>
         </div>
         <div class="stage now rv" style="--d:1;--fill:.5">
           <span class="node"></span><span class="no">02</span>
           <h3><span class="en">Direbattle<br>League</span><span class="id">Direbattle<br>Liga</span></h3>
-          <p><span class="en">The Cup's top 4 advance.</span><span class="id">4 tim terbaik Cup lanjut ke sini.</span></p>
+          <p><span class="en">The top four teams from the Cup advance to this stage.</span><span class="id">4 tim terbaik Cup lanjut ke babak ini.</span></p>
           <span class="pill"><span class="en">Next</span><span class="id">Berikutnya</span></span>
         </div>
         <div class="stage rv" style="--d:2;--fill:0">
           <span class="node"></span><span class="no">03</span>
           <h3><span class="en">Direbattle<br>National</span><span class="id">Direbattle<br>Nasional</span></h3>
-          <p><span class="en">A LAN, offline tournament.</span><span class="id">Turnamen LAN, offline.</span></p>
+          <p><span class="en">A LAN (offline) tournament.</span><span class="id">Turnamen LAN (offline).</span></p>
           <span class="pill"><span class="en">Planned</span><span class="id">Direncanakan</span></span>
         </div>
         <div class="stage rv" style="--d:3;--fill:0">
           <span class="node"></span><span class="no">04</span>
           <h3>Direbattle<br>International</h3>
-          <p><span class="en">Indonesian teams against the region.</span><span class="id">Tim Indonesia melawan region.</span></p>
+          <p><span class="en">Indonesian teams compete against the best in the region.</span><span class="id">Tim Indonesia bertanding melawan tim terbaik di kawasan.</span></p>
           <span class="pill"><span class="en">Planned</span><span class="id">Direncanakan</span></span>
         </div>
       </div>
       <div class="side rv" style="--d:5">
         <span class="mono"><span class="en">Qualifiers</span><span class="id">Kualifikasi</span></span>
         <span class="chip">Open Series</span><span class="chip">Uprising</span>
-        <span class="mono" style="margin-left:1.6rem"><span class="en">Side events</span><span class="id">Event sampingan</span></span>
+        <span class="mono" style="margin-left:1.6rem"><span class="en">Side events</span><span class="id">Acara pendamping</span></span>
         <span class="chip">Mix Series</span><span class="chip">Showdown 1v1 Mid</span>
-        <p class="rulenote"><span class="mono"><span class="en">Open Series rule</span><span class="id">Aturan Open Series</span></span><span class="en">Current pro players, and anyone who played a Tier 3 or higher international tournament in the last 3 years, cannot enter.</span><span class="id">Pemain tim pro aktif, dan pemain yang pernah tampil di turnamen internasional Tier 3 ke atas dalam 3 tahun terakhir, tidak boleh ikut.</span></p>
+        <p class="rulenote"><span class="mono"><span class="en">Open Series eligibility</span><span class="id">Ketentuan Open Series</span></span><span class="en">Active professional players, and anyone who has competed in a Tier 3 or higher international tournament in the past three years, are not eligible.</span><span class="id">Pemain profesional aktif, serta pemain yang pernah bertanding di turnamen internasional Tier 3 ke atas dalam tiga tahun terakhir, tidak dapat berpartisipasi.</span></p>
       </div>
     </div>
   </div>
@@ -944,17 +944,17 @@ tbody tr:hover{background:rgba(239,232,227,.05)}
 <section class="slide" id="events" data-ch="2" data-sec-en="02 · Direbattle" data-sec-id="02 · Direbattle">
   <div class="st">
     <img class="chmark" data-vt="dbmark" src="assets/direbattle-mark.webp" alt="" aria-hidden="true">
-    <div class="eyebrow mono rv" data-vt="eyebrow"><b>06</b><span class="en">What we've run</span><span class="id">Yang sudah kami jalankan</span></div>
+    <div class="eyebrow mono rv" data-vt="eyebrow"><b>06</b><span class="en">Events we have organized</span><span class="id">Turnamen yang telah kami selenggarakan</span></div>
     <div class="body">
       <div class="ev">
         <div class="tot">
-          <div class="rv" style="--d:1"><span class="num" data-count="7">7</span><span class="mono"><span class="en">Events completed, Jul–Oct 2026</span><span class="id">Event selesai, Jul–Okt 2026</span></span></div>
-          <div class="rv" style="--d:2"><span class="num"><small>IDR</small><span data-count="101500000">101,500,000</span></span><span class="mono"><span class="en">Total prize pool, completed events</span><span class="id">Total prize pool, event yang selesai</span></span></div>
-          <div class="rv" style="--d:3"><span class="num" data-count="59">59</span><span class="mono"><span class="en">Team entries across Open Series 1–4</span><span class="id">Pendaftaran tim di Open Series 1–4</span></span></div>
+          <div class="rv" style="--d:1"><span class="num" data-count="7">7</span><span class="mono"><span class="en">Events completed, Jul–Oct 2026</span><span class="id">Acara selesai, Jul–Okt 2026</span></span></div>
+          <div class="rv" style="--d:2"><span class="num"><small>IDR</small><span data-count="101500000">101,500,000</span></span><span class="mono"><span class="en">Total prize pool across completed events</span><span class="id">Total hadiah dari seluruh acara yang selesai</span></span></div>
+          <div class="rv" style="--d:3"><span class="num" data-count="59">59</span><span class="mono"><span class="en">Team entries across Open Series 1–4</span><span class="id">Tim terdaftar di Open Series 1–4</span></span></div>
         </div>
         <div class="tbl">
           <table>
-            <thead><tr><th>Event</th><th><span class="en">Date</span><span class="id">Waktu</span></th><th class="r"><span class="en">Teams</span><span class="id">Tim</span></th><th class="r">Prize pool (IDR)</th><th><span class="en">Champion</span><span class="id">Juara</span></th></tr></thead>
+            <thead><tr><th><span class="en">Event</span><span class="id">Acara</span></th><th><span class="en">Date</span><span class="id">Periode</span></th><th class="r"><span class="en">Teams</span><span class="id">Tim</span></th><th class="r"><span class="en">Prize pool (IDR)</span><span class="id">Total Hadiah (IDR)</span></th><th><span class="en">Champion</span><span class="id">Juara</span></th></tr></thead>
             <tbody>
               <tr style="--d:0"><td>Open Series 1</td><td data-m="2026-07"></td><td class="r">16</td><td class="r" data-n="10000000"></td><td>ULAR REBORN</td></tr>
               <tr style="--d:1"><td>Open Series 2</td><td data-m="2026-08"></td><td class="r">12</td><td class="r" data-n="10000000"></td><td>Maxwell+4</td></tr>
@@ -963,7 +963,7 @@ tbody tr:hover{background:rgba(239,232,227,.05)}
               <tr style="--d:4"><td>Open Series 4</td><td data-m="2026-09"></td><td class="r">16</td><td class="r" data-n="10000000"></td><td>The Dudz</td></tr>
               <tr style="--d:5"><td>Showdown 1v1 Mid</td><td data-m="2026-10"></td><td class="r">8</td><td class="r" data-n="4000000"></td><td>JD</td></tr>
               <tr style="--d:6" class="is-cup"><td>Direbattle Cup</td><td data-m="2026-10"></td><td class="r">8</td><td class="r" data-n="50000000"></td><td>Maxwell+4</td></tr>
-              <tr style="--d:7" class="soon"><td>Uprising 1</td><td data-m="2026-11"></td><td class="r"><span class="en">Open</span><span class="id">Dibuka</span></td><td class="r" data-n="10000000"></td><td><span class="en">Upcoming</span><span class="id">Segera</span></td></tr>
+              <tr style="--d:7" class="soon"><td>Uprising 1</td><td data-m="2026-11"></td><td class="r"><span class="en">Open</span><span class="id">Terbuka</span></td><td class="r" data-n="10000000"></td><td><span class="en">Upcoming</span><span class="id">Akan datang</span></td></tr>
             </tbody>
           </table>
         </div>
@@ -988,19 +988,19 @@ tbody tr:hover{background:rgba(239,232,227,.05)}
           <div class="rv" style="--d:3">
             <span class="mono" style="color:var(--gold)"><span class="en">Champion</span><span class="id">Juara</span></span>
             <h3>Maxwell+4</h3>
-            <span class="mute"><span class="en">over chad · 8 teams · IDR <span data-n="50000000"></span> prize pool</span><span class="id">atas chad · 8 tim · prize pool IDR <span data-n="50000000"></span></span></span>
+            <span class="mute"><span class="en">defeated chad · 8 teams · IDR <span data-n="50000000"></span> prize pool</span><span class="id">mengalahkan chad · 8 tim · total hadiah IDR <span data-n="50000000"></span></span></span></span>
           </div>
         </div>
         <div class="yt rv" style="--d:2">
           <span class="mono cap"><span class="en">Cup content on YouTube · 12 Oct – 8 Nov 2026</span><span class="id">Konten Cup di YouTube · 12 Okt – 8 Nov 2026</span></span>
-          <div class="k"><span class="num" data-count="448947">448,947</span><span class="mono">Views</span></div>
+          <div class="k"><span class="num" data-count="448947">448,947</span><span class="mono"><span class="en">Views</span><span class="id">Tayangan</span></span></div>
           <div class="k"><span class="num" data-count="28499.0" data-dec="1">28,499.0</span><span class="mono"><span class="en">Watch time (hours)</span><span class="id">Waktu tonton (jam)</span></span></div>
           <div class="k"><span class="num" data-count="1151525">1,151,525</span><span class="mono"><span class="en">Thumbnail impressions</span><span class="id">Impresi thumbnail</span></span></div>
-          <div class="k"><span class="num"><span data-count="12.8" data-dec="1">12.8</span>%</span><span class="mono">Click-through rate</span></div>
-          <div class="k" style="grid-column:1/-1"><span class="num" data-count="2619">2,619</span><span class="mono"><span class="en">Subscribers gained</span><span class="id">Subscriber bertambah</span></span></div>
+          <div class="k"><span class="num"><span data-count="12.8" data-dec="1">12.8</span>%</span><span class="mono"><span class="en">Click-through rate</span><span class="id">Rasio klik-tayang (CTR)</span></span></div>
+          <div class="k" style="grid-column:1/-1"><span class="num" data-count="2619">2,619</span><span class="mono"><span class="en">Subscribers gained</span><span class="id">Penambahan subscriber</span></span></div>
           <div class="hl">
-            <span class="mono lbl"><span class="en">Grand Final stream alone</span><span class="id">Stream Grand Final saja</span></span>
-            <div><span class="num" data-count="153137">153,137</span><br><span class="mono">Views</span></div>
+            <span class="mono lbl"><span class="en">Grand Final stream only</span><span class="id">Khusus siaran Grand Final</span></span>
+            <div><span class="num" data-count="153137">153,137</span><br><span class="mono"><span class="en">Views</span><span class="id">Tayangan</span></span></div>
             <div><span class="num" data-count="11808.4" data-dec="1">11,808.4</span><br><span class="mono"><span class="en">Watch hours</span><span class="id">Jam tonton</span></span></div>
           </div>
         </div>
@@ -1013,26 +1013,26 @@ tbody tr:hover{background:rgba(239,232,227,.05)}
 <section class="slide" id="broadcast" data-ch="2" data-sec-en="02 · Direbattle" data-sec-id="02 · Direbattle">
   <div class="st">
     <img class="chmark" data-vt="dbmark" src="assets/direbattle-mark.webp" alt="" aria-hidden="true">
-    <div class="eyebrow mono rv" data-vt="eyebrow"><b>08</b><span class="en">On the broadcast</span><span class="id">Di siaran</span></div>
+    <div class="eyebrow mono rv" data-vt="eyebrow"><b>08</b><span class="en">On air</span><span class="id">Siaran kami</span></div>
     <div class="body bc">
       <div class="bc-head">
-        <h2 data-vt="title"><span class="en">More than a match.</span><span class="id">Lebih dari sekadar match.</span></h2>
-        <p class="rv" style="--d:2"><span class="en">Every Direbattle broadcast is a show: live drafts with a panel on the couch, plus segments built for laughs and clips.</span><span class="id">Setiap siaran Direbattle adalah tontonan: draft live dengan panelis di sofa, plus segmen yang dibuat untuk seru-seruan dan jadi bahan klip.</span></p>
+        <h2 data-vt="title"><span class="en">More than a match.</span><span class="id">Lebih dari sekadar pertandingan.</span></h2>
+        <p class="rv" style="--d:2"><span class="en">Every Direbattle broadcast is a full show: live drafts analyzed by a panel, plus entertainment segments designed to be clipped and shared.</span><span class="id">Setiap siaran Direbattle dikemas sebagai tontonan utuh: draft langsung yang dibahas panelis, ditambah segmen hiburan yang dirancang untuk dipotong menjadi klip dan dibagikan.</span></p>
       </div>
       <div class="bento">
-        <figure class="tile big" style="--d:0"><img src="assets/bc-match.webp" alt="Direbattle Cup Grand Final broadcast with the live draft overlay and the panel"><figcaption><span class="mono">01</span><b><span class="en">Grand Final · live draft</span><span class="id">Grand Final · draft live</span></b></figcaption></figure>
-        <figure class="tile" style="--d:1"><img src="assets/bc-kuis.webp" alt="Kuis Kematian title card"><figcaption><span class="mono">02</span><b>Kuis Kematian</b></figcaption></figure>
+        <figure class="tile big" style="--d:0"><img src="assets/bc-match.webp" alt="Direbattle Cup Grand Final broadcast with the live draft overlay and the panel"><figcaption><span class="mono">01</span><b><span class="en">Grand Final · live draft</span><span class="id">Grand Final · draft langsung</span></b></figcaption></figure>
+        <figure class="tile" style="--d:1"><img src="assets/bc-kuis.webp" alt="Quiz Kematian title card"><figcaption><span class="mono">02</span><b>Quiz Kematian</b></figcaption></figure>
         <figure class="tile" style="--d:2"><img src="assets/bc-tebak.webp" alt="Tebak Skill spin-the-wheel quiz on the broadcast"><figcaption><span class="mono">03</span><b>Tebak Skill</b></figcaption></figure>
         <figure class="tile" style="--d:3"><img src="assets/bc-tierlist.webp" alt="Tier List Kuliner Kota Bandung title card"><figcaption><span class="mono">04</span><b>Tier List Kuliner</b></figcaption></figure>
-        <figure class="tile" style="--d:4"><img src="assets/bc-host.webp" alt="The panel with the tier list host on set"><figcaption><span class="mono">04</span><b><span class="en">The host on set</span><span class="id">Pemandu di studio</span></b></figcaption></figure>
-        <figure class="tile" style="--d:5"><img src="assets/bc-makan.webp" alt="Panelists tasting Bandung food on the broadcast"><figcaption><span class="mono">04</span><b><span class="en">Taste test</span><span class="id">Cicip dulu</span></b></figcaption></figure>
-        <figure class="tile" style="--d:6"><img src="assets/bc-tierboard.webp" alt="Kuliner Bandung tier list board, ranked S to C"><figcaption><span class="mono">04</span><b><span class="en">Ranked S to C</span><span class="id">Diranking S sampai C</span></b></figcaption></figure>
+        <figure class="tile" style="--d:4"><img src="assets/bc-host.webp" alt="The panel with the tier list host on set"><figcaption><span class="mono">04</span><b><span class="en">The host on set</span><span class="id">Pembawa acara di studio</span></b></figcaption></figure>
+        <figure class="tile" style="--d:5"><img src="assets/bc-makan.webp" alt="Panelists tasting Bandung food on the broadcast"><figcaption><span class="mono">04</span><b><span class="en">Taste test</span><span class="id">Sesi mencicipi</span></b></figcaption></figure>
+        <figure class="tile" style="--d:6"><img src="assets/bc-tierboard.webp" alt="Kuliner Bandung tier list board, ranked S to C"><figcaption><span class="mono">04</span><b><span class="en">Ranked from S to C</span><span class="id">Peringkat S hingga C</span></b></figcaption></figure>
       </div>
       <div class="segs-list">
-        <div class="rv" style="--d:3"><span class="mono">01</span><h3><span class="en">Match &amp; panel</span><span class="id">Match &amp; panelis</span></h3><p><span class="en">Live draft overlay, with panelists breaking down every game.</span><span class="id">Overlay draft live, panelis membedah setiap game.</span></p></div>
-        <div class="rv" style="--d:4"><span class="mono">02</span><h3>Kuis Kematian</h3><p><span class="en">Questions are drawn from a fishbowl, and the panelist has to answer.</span><span class="id">Pertanyaan diambil dari fishbowl, panelis wajib menjawab.</span></p></div>
-        <div class="rv" style="--d:5"><span class="mono">03</span><h3>Tebak Skill</h3><p><span class="en">A spin-the-wheel guessing game between panelists.</span><span class="id">Tebak-tebakan spin the wheel antar panelis.</span></p></div>
-        <div class="rv" style="--d:6"><span class="mono">04</span><h3><span class="en">Bandung food tier list</span><span class="id">Tier List Kuliner Bandung</span></h3><p><span class="en">Hosted by a Dedi Mulyadi parody. Panelists taste Bandung food and rank it from S to C.</span><span class="id">Dipandu parodi Dedi Mulyadi. Panelis mencicipi kuliner Bandung lalu meranking dari S sampai C.</span></p></div>
+        <div class="rv" style="--d:3"><span class="mono">01</span><h3><span class="en">Match &amp; panel</span><span class="id">Pertandingan &amp; panelis</span></h3><p><span class="en">A live draft overlay, with panelists analyzing every game.</span><span class="id">Overlay draft langsung, dengan panelis yang mengulas setiap game.</span></p></div>
+        <div class="rv" style="--d:4"><span class="mono">02</span><h3>Quiz Kematian</h3><p><span class="en">Questions are drawn from a fishbowl, and panelists must answer them.</span><span class="id">Pertanyaan diambil dari fishbowl, dan panelis wajib menjawabnya.</span></p></div>
+        <div class="rv" style="--d:5"><span class="mono">03</span><h3>Tebak Skill</h3><p><span class="en">A spin-the-wheel guessing game between panelists.</span><span class="id">Permainan tebak-tebakan spin the wheel antarpanelis.</span></p></div>
+        <div class="rv" style="--d:6"><span class="mono">04</span><h3><span class="en">Bandung food tier list</span><span class="id">Tier List Kuliner Bandung</span></h3><p><span class="en">Hosted by a Dedi Mulyadi parody character. Panelists taste local Bandung dishes and rank them from S to C.</span><span class="id">Dipandu karakter parodi Dedi Mulyadi. Panelis mencicipi kuliner khas Bandung, lalu memberi peringkat dari S hingga C.</span></p></div>
       </div>
     </div>
   </div>
@@ -1043,18 +1043,18 @@ tbody tr:hover{background:rgba(239,232,227,.05)}
   <div class="glow" aria-hidden="true"></div>
   <div class="st">
     <img class="chmark" data-vt="dbmark" src="assets/direbattle-mark.webp" alt="" aria-hidden="true">
-    <div class="eyebrow mono rv" data-vt="eyebrow"><b>09</b><span class="en">Next up</span><span class="id">Selanjutnya</span></div>
+    <div class="eyebrow mono rv" data-vt="eyebrow"><b>09</b><span class="en">Next up</span><span class="id">Agenda berikutnya</span></div>
     <div class="body">
       <div class="up">
         <div class="up-l">
           <h2 data-vt="title">Direbattle <em>Uprising 1</em></h2>
-          <p class="rv" style="--d:2"><span class="en">Built for young players and open to everyone: rising talent, veterans who never got their shot, and casual teams. No age limit. The best teams move on through the circuit.</span><span class="id">Dibuat untuk pemain muda dan terbuka untuk semua: talenta baru, veteran yang belum dapat kesempatan, dan tim kasual. Tanpa batas umur. Tim terbaik lanjut di sirkuit.</span></p>
+          <p class="rv" style="--d:2"><span class="en">Designed for young players and open to all: rising talent, veterans who never got their chance, and casual teams. There is no age limit, and the best teams advance through the circuit.</span><span class="id">Dirancang untuk pemain muda dan terbuka untuk semua: talenta baru, veteran yang belum mendapat kesempatan, hingga tim kasual. Tanpa batas usia, dan tim terbaik akan melaju di sirkuit.</span></p>
           <dl class="rv" style="--d:3">
             <div><dt class="mono"><span class="en">Registration</span><span class="id">Pendaftaran</span></dt><dd>7–16 Nov 2026</dd></div>
-            <div><dt class="mono">Event</dt><dd>20–22 Nov 2026</dd></div>
-            <div><dt class="mono">Prize pool</dt><dd>IDR <span data-n="10000000"></span></dd></div>
+            <div><dt class="mono"><span class="en">Event</span><span class="id">Acara</span></dt><dd>20–22 Nov 2026</dd></div>
+            <div><dt class="mono"><span class="en">Prize pool</span><span class="id">Total Hadiah</span></dt><dd>IDR <span data-n="10000000"></span></dd></div>
             <div><dt class="mono">Format</dt><dd>Online</dd></div>
-            <div><dt class="mono">Key visual</dt><dd>Celestial Kingdom × Sky of Parahyangan</dd></div>
+            <div><dt class="mono"><span class="en">Theme</span><span class="id">Tema</span></dt><dd>Celestial Kingdom × Sky of Parahyangan</dd></div>
           </dl>
         </div>
         <figure class="up-poster"><img src="assets/uprising-open.webp" alt="Direbattle Uprising, registration open" width="700" height="890"></figure>
@@ -1073,29 +1073,29 @@ tbody tr:hover{background:rgba(239,232,227,.05)}
         <section class="acct rv" style="--c:var(--red);--d:1">
           <header><h3>@direbornesports</h3><span class="mono">Instagram · 1 Jun – 9 Nov 2026</span></header>
           <div class="kgrid">
-            <div class="lead"><span class="num" data-count="1.6" data-dec="1" data-suf="M">1.6M</span><span class="mono">Views</span></div>
-            <div><span class="num" data-count="110.6" data-dec="1" data-suf="K">110.6K</span><span class="mono">Reach</span></div>
+            <div class="lead"><span class="num" data-count="1.6" data-dec="1" data-suf="M">1.6M</span><span class="mono"><span class="en">Views</span><span class="id">Tayangan</span></span></div>
+            <div><span class="num" data-count="110.6" data-dec="1" data-suf="K">110.6K</span><span class="mono"><span class="en">Reach</span><span class="id">Jangkauan</span></span></div>
             <div><span class="num" data-count="44.6" data-dec="1" data-suf="K">44.6K</span><span class="mono"><span class="en">Interactions</span><span class="id">Interaksi</span></span></div>
             <div><span class="num" data-count="65.8" data-dec="1" data-suf="K">65.8K</span><span class="mono"><span class="en">Profile visits</span><span class="id">Kunjungan profil</span></span></div>
-            <div><span class="num" data-count="3" data-suf="K">3K</span><span class="mono">Follows</span></div>
-            <div><span class="num" data-count="789">789</span><span class="mono"><span class="en">Link clicks</span><span class="id">Klik link</span></span></div>
+            <div><span class="num" data-count="3" data-suf="K">3K</span><span class="mono"><span class="en">Follows</span><span class="id">Pengikut baru</span></span></div>
+            <div><span class="num" data-count="789">789</span><span class="mono"><span class="en">Link clicks</span><span class="id">Klik tautan</span></span></div>
           </div>
         </section>
         <section class="acct rv" style="--c:var(--green);--d:2">
           <header><h3>@direbattle</h3><span class="mono">Instagram · 1 Jun – 10 Nov 2026</span></header>
           <div class="kgrid">
-            <div class="lead"><span class="num" data-count="596.4" data-dec="1" data-suf="K">596.4K</span><span class="mono">Views</span></div>
-            <div><span class="num" data-count="82.9" data-dec="1" data-suf="K">82.9K</span><span class="mono">Viewers</span></div>
+            <div class="lead"><span class="num" data-count="596.4" data-dec="1" data-suf="K">596.4K</span><span class="mono"><span class="en">Views</span><span class="id">Tayangan</span></span></div>
+            <div><span class="num" data-count="82.9" data-dec="1" data-suf="K">82.9K</span><span class="mono"><span class="en">Viewers</span><span class="id">Penonton</span></span></div>
             <div><span class="num" data-count="14.7" data-dec="1" data-suf="K">14.7K</span><span class="mono"><span class="en">Interactions</span><span class="id">Interaksi</span></span></div>
             <div><span class="num" data-count="16.7" data-dec="1" data-suf="K">16.7K</span><span class="mono"><span class="en">Profile visits</span><span class="id">Kunjungan profil</span></span></div>
-            <div><span class="num" data-count="896">896</span><span class="mono">Follows</span></div>
-            <div><span class="num" data-count="325">325</span><span class="mono"><span class="en">Link clicks</span><span class="id">Klik link</span></span></div>
+            <div><span class="num" data-count="896">896</span><span class="mono"><span class="en">Follows</span><span class="id">Pengikut baru</span></span></div>
+            <div><span class="num" data-count="325">325</span><span class="mono"><span class="en">Link clicks</span><span class="id">Klik tautan</span></span></div>
           </div>
         </section>
       </div>
       <div class="reach-foot">
         <div class="channels rv" style="--d:4">
-          <span class="mono"><span class="en">Also on</span><span class="id">Juga di</span></span>
+          <span class="mono"><span class="en">Also on</span><span class="id">Juga hadir di</span></span>
           <span>YouTube</span><span>X @direbornesports</span><span>Facebook /direbornesports</span><span>Threads</span><span>direborn.team</span>
         </div>
         <a class="idc rv" style="--d:5" href="https://www.instagram.com/indonesiandota2community/" target="_blank" rel="noopener">
@@ -1103,8 +1103,8 @@ tbody tr:hover{background:rgba(239,232,227,.05)}
           <div>
             <span class="mono"><span class="en">Community</span><span class="id">Komunitas</span> · IDC</span>
             <b>Indonesian Dota 2 Community</b>
-            <span class="mute"><span class="en">Because I Do Care. A home for old and new players, so Indonesian Dota can soar again.</span><span class="id">Because I Do Care. Wadah pemain lama dan baru, biar Dota Indonesia berjaya lagi.</span></span>
-            <span class="idc-k"><b data-n="3321">3,321</b> <span class="en">Instagram followers · Discord</span><span class="id">follower Instagram · Discord</span></span>
+            <span class="mute"><span class="en">Because I Do Care. A home for veteran and new players alike, so Indonesian Dota can soar again.</span><span class="id">Because I Do Care. Wadah bagi pemain lama maupun baru, agar Dota Indonesia kembali berjaya.</span></span>
+            <span class="idc-k"><b data-n="3321">3,321</b> <span class="en">Instagram followers · Discord</span><span class="id">pengikut Instagram · Discord</span></span>
           </div>
         </a>
       </div>
@@ -1116,14 +1116,14 @@ tbody tr:hover{background:rgba(239,232,227,.05)}
 <section class="slide" id="content" data-ch="3" data-sec-en="03 · Partnership" data-sec-id="03 · Kemitraan">
   <div class="st">
     <img class="chmark" data-vt="mark" src="assets/mark.webp" alt="" aria-hidden="true">
-    <div class="eyebrow mono rv" data-vt="eyebrow"><b>11</b><span class="en">What we publish</span><span class="id">Yang kami publikasikan</span></div>
+    <div class="eyebrow mono rv" data-vt="eyebrow"><b>11</b><span class="en">What we publish</span><span class="id">Konten kami</span></div>
     <div class="body">
       <div class="head"><h2 data-vt="title"><span class="en">Two feeds, one standard.</span><span class="id">Dua feed, satu standar.</span></h2></div>
       <div class="feeds">
         <figure class="feed" style="--c:var(--red);--d:0"><div class="frame"><img src="assets/feed-direborn.webp" alt="Direborn Esports Instagram feed" width="1400" height="746"></div>
-          <figcaption class="rv" style="--d:4"><b>@direbornesports</b><span class="mono"><span class="en">Team · match days, results, players</span><span class="id">Tim · match day, hasil, pemain</span></span></figcaption></figure>
+          <figcaption class="rv" style="--d:4"><b>@direbornesports</b><span class="mono"><span class="en">Team · match days, results and players</span><span class="id">Tim · hari pertandingan, hasil, dan pemain</span></span></figcaption></figure>
         <figure class="feed" style="--c:var(--green);--d:1"><div class="frame"><img src="assets/feed-direbattle.webp" alt="Direbattle Instagram feed" width="1394" height="747"></div>
-          <figcaption class="rv" style="--d:5"><b>@direbattle</b><span class="mono"><span class="en">Circuit · key visuals, stats, brackets</span><span class="id">Sirkuit · key visual, statistik, bracket</span></span></figcaption></figure>
+          <figcaption class="rv" style="--d:5"><b>@direbattle</b><span class="mono"><span class="en">Circuit · key visuals, statistics and brackets</span><span class="id">Sirkuit · key visual, statistik, dan bracket</span></span></figcaption></figure>
       </div>
     </div>
   </div>
@@ -1133,19 +1133,19 @@ tbody tr:hover{background:rgba(239,232,227,.05)}
 <section class="slide" id="production" data-ch="3" data-sec-en="03 · Partnership" data-sec-id="03 · Kemitraan">
   <div class="st">
     <img class="chmark" data-vt="mark" src="assets/mark.webp" alt="" aria-hidden="true">
-    <div class="eyebrow mono rv" data-vt="eyebrow"><b>12</b><span class="en">In-house production</span><span class="id">Produksi in-house</span></div>
+    <div class="eyebrow mono rv" data-vt="eyebrow"><b>12</b><span class="en">In-house production</span><span class="id">Produksi internal</span></div>
     <div class="body">
       <div class="prod">
         <div class="prod-l">
-          <div class="head"><h2 data-vt="title"><span class="en">We make it ourselves, from broadcast to feed.</span><span class="id">Semua kami buat sendiri, dari broadcast sampai feed.</span></h2>
-            <p class="rv" style="--d:2"><span class="en">A partner's integration is produced by the same team that runs our streams and content, so it looks native, not pasted on.</span><span class="id">Integrasi partner dikerjakan tim yang sama yang menjalankan stream dan konten kami, jadi terasa menyatu, bukan sekadar ditempel.</span></p></div>
+          <div class="head"><h2 data-vt="title"><span class="en">We produce everything in-house, from broadcast to social feed.</span><span class="id">Semua kami produksi sendiri, dari siaran hingga feed media sosial.</span></h2>
+            <p class="rv" style="--d:2"><span class="en">Partner integrations are produced by the same team that runs our streams and content, so they feel native rather than added on.</span><span class="id">Integrasi mitra dikerjakan oleh tim yang sama dengan pengelola siaran dan konten kami, sehingga terasa menyatu, bukan sekadar tempelan.</span></p></div>
           <div class="cols">
-            <div class="col rv" style="--d:3"><h3>Broadcast</h3><ul>
-              <li><span class="en">Custom Major-style draft overlay</span><span class="id">Overlay draft custom ala Major</span></li>
-              <li><span class="en">Live stats &amp; bracket</span><span class="id">Statistik &amp; bracket live</span></li>
-              <li><span class="en">Multi-cam with casters</span><span class="id">Multi-cam bersama caster</span></li></ul></div>
-            <div class="col rv" style="--d:4"><h3>Creative</h3><ul>
-              <li>Graphic design</li><li>Video &amp; motion</li><li>Social media</li><li><span class="en">Clipping</span><span class="id">Clipper</span></li></ul></div>
+            <div class="col rv" style="--d:3"><h3><span class="en">Broadcast</span><span class="id">Siaran</span></h3><ul>
+              <li><span class="en">Custom Major-style draft overlay</span><span class="id">Overlay draft kustom bergaya Major</span></li>
+              <li><span class="en">Live statistics &amp; bracket</span><span class="id">Statistik &amp; bracket langsung</span></li>
+              <li><span class="en">Multi-camera setup with casters</span><span class="id">Multi-kamera bersama caster</span></li></ul></div>
+            <div class="col rv" style="--d:4"><h3><span class="en">Creative</span><span class="id">Kreatif</span></h3><ul>
+              <li><span class="en">Graphic design</span><span class="id">Desain grafis</span></li><li>Video &amp; motion</li><li><span class="en">Social media</span><span class="id">Media sosial</span></li><li><span class="en">Clipping</span><span class="id">Klip konten</span></li></ul></div>
           </div>
         </div>
         <div class="shots">
@@ -1162,15 +1162,15 @@ tbody tr:hover{background:rgba(239,232,227,.05)}
 <section class="slide" id="roadmap" data-ch="3" data-sec-en="03 · Partnership" data-sec-id="03 · Kemitraan">
   <div class="st">
     <img class="chmark" data-vt="mark" src="assets/mark.webp" alt="" aria-hidden="true">
-    <div class="eyebrow mono rv" data-vt="eyebrow"><b>13</b><span class="en">Where we're going</span><span class="id">Arah kami</span></div>
+    <div class="eyebrow mono rv" data-vt="eyebrow"><b>13</b><span class="en">Where we are heading</span><span class="id">Peta jalan</span></div>
     <div class="body" style="gap:3.4rem">
-      <div class="head"><h2 data-vt="title"><span class="en">From content to the crowd.</span><span class="id">Dari konten sampai ke penonton.</span></h2></div>
+      <div class="head"><h2 data-vt="title"><span class="en">From content to the crowd.</span><span class="id">Dari konten hingga bertemu penonton.</span></h2></div>
       <div class="road">
-        <div class="step rv" style="--d:1"><span class="mono"><span class="en">Now</span><span class="id">Sekarang</span></span><span class="no">01</span><h3><span class="en">Content activation</span><span class="id">Aktivasi konten</span></h3><p><span class="en">Instagram content and Direbattle streams.</span><span class="id">Konten Instagram dan stream Direbattle.</span></p></div>
-        <div class="step rv" style="--d:2"><span class="mono"><span class="en">Next</span><span class="id">Berikutnya</span></span><span class="no">02</span><h3>YouTube</h3><p><span class="en">Long-form vlogs, mic checks, challenges and quizzes, clipped into shorts for IG, TikTok and YouTube.</span><span class="id">Video panjang: vlog, mic check, challenge dan kuis, lalu dipotong jadi short untuk IG, TikTok dan YouTube.</span></p></div>
-        <div class="step rv" style="--d:3"><span class="mono"><span class="en">Then</span><span class="id">Lalu</span></span><span class="no">03</span><h3>Merchandise</h3><p><span class="en">The team jersey grows into a casual-wear catalog.</span><span class="id">Jersey tim berkembang jadi katalog casual wear.</span></p></div>
-        <div class="step rv" style="--d:4"><span class="mono"><span class="en">Then</span><span class="id">Lalu</span></span><span class="no">04</span><h3><span class="en">Content diversification</span><span class="id">Diversifikasi konten</span></h3><p><span class="en">Talent and brand ambassadors reaching F&amp;B, daily-life and fun content.</span><span class="id">Talent dan brand ambassador masuk ke konten F&amp;B, keseharian dan hiburan.</span></p></div>
-        <div class="step rv" style="--d:5"><span class="mono"><span class="en">Then</span><span class="id">Lalu</span></span><span class="no">05</span><h3><span class="en">Offline events</span><span class="id">Event offline</span></h3><p><span class="en">Dota 2 activations: watch parties, meet &amp; greets.</span><span class="id">Aktivasi Dota 2: nobar, meet &amp; greet.</span></p></div>
+        <div class="step rv" style="--d:1"><span class="mono"><span class="en">Now</span><span class="id">Sekarang</span></span><span class="no">01</span><h3><span class="en">Content activation</span><span class="id">Aktivasi konten</span></h3><p><span class="en">Instagram content and Direbattle streams.</span><span class="id">Konten Instagram dan siaran Direbattle.</span></p></div>
+        <div class="step rv" style="--d:2"><span class="mono"><span class="en">Next</span><span class="id">Berikutnya</span></span><span class="no">02</span><h3>YouTube</h3><p><span class="en">Long-form vlogs, mic checks, challenges and quizzes, repurposed into short videos for Instagram, TikTok and YouTube.</span><span class="id">Video panjang berupa vlog, mic check, tantangan, dan kuis, lalu diolah menjadi video pendek untuk Instagram, TikTok, dan YouTube.</span></p></div>
+        <div class="step rv" style="--d:3"><span class="mono"><span class="en">Mid-term</span><span class="id">Jangka menengah</span></span><span class="no">03</span><h3>Merchandise</h3><p><span class="en">Expanding the team jersey into a casual-wear collection.</span><span class="id">Mengembangkan jersey tim menjadi koleksi pakaian kasual.</span></p></div>
+        <div class="step rv" style="--d:4"><span class="mono"><span class="en">Long-term</span><span class="id">Jangka panjang</span></span><span class="no">04</span><h3><span class="en">Content diversification</span><span class="id">Diversifikasi konten</span></h3><p><span class="en">Talent and brand ambassadors expanding into F&amp;B, lifestyle and entertainment content.</span><span class="id">Talent dan brand ambassador merambah konten F&amp;B, gaya hidup, dan hiburan.</span></p></div>
+        <div class="step rv" style="--d:5"><span class="mono"><span class="en">Vision</span><span class="id">Visi</span></span><span class="no">05</span><h3><span class="en">Offline events</span><span class="id">Acara offline</span></h3><p><span class="en">Dota 2 activations such as watch parties and meet-and-greets.</span><span class="id">Aktivasi Dota 2 seperti nobar dan meet and greet.</span></p></div>
       </div>
     </div>
   </div>
@@ -1182,16 +1182,16 @@ tbody tr:hover{background:rgba(239,232,227,.05)}
     <img class="chmark" data-vt="mark" src="assets/mark.webp" alt="" aria-hidden="true">
     <div class="eyebrow mono rv" data-vt="eyebrow"><b>14</b><span class="en">Ways to partner</span><span class="id">Bentuk kerja sama</span></div>
     <div class="body" style="gap:3rem">
-      <div class="head"><h2 data-vt="title"><span class="en">No fixed packages. We build it around your brand.</span><span class="id">Tanpa paket baku. Kami susun sesuai brand Anda.</span></h2></div>
+      <div class="head"><h2 data-vt="title"><span class="en">No fixed packages. We tailor every partnership to your brand.</span><span class="id">Tanpa paket baku. Setiap kerja sama kami sesuaikan dengan brand Anda.</span></h2></div>
       <div class="ways">
-        <article class="way" style="--d:0"><span class="mono">01</span><h3><span class="en">Team partner</span><span class="id">Partner tim</span></h3><ul>
-          <li><span class="en">Jersey and apparel placement</span><span class="id">Logo di jersey dan apparel</span></li><li><span class="en">Player content</span><span class="id">Konten pemain</span></li><li><span class="en">Match-day posts</span><span class="id">Post match day</span></li></ul></article>
-        <article class="way" style="--d:1"><span class="mono">02</span><h3><span class="en">Tournament partner</span><span class="id">Partner turnamen</span></h3><ul>
-          <li><span class="en">Direbattle naming or presenting rights</span><span class="id">Naming atau presenting Direbattle</span></li><li><span class="en">Broadcast segments and overlays</span><span class="id">Segmen dan overlay broadcast</span></li><li><span class="en">Prize pool support</span><span class="id">Dukungan prize pool</span></li></ul></article>
-        <article class="way" style="--d:2"><span class="mono">03</span><h3><span class="en">Content partner</span><span class="id">Partner konten</span></h3><ul>
-          <li><span class="en">Branded YouTube series</span><span class="id">Seri YouTube ber-brand</span></li><li><span class="en">Short-form integrations</span><span class="id">Integrasi short-form</span></li><li><span class="en">Product reviews by our players</span><span class="id">Review produk oleh pemain</span></li></ul></article>
+        <article class="way" style="--d:0"><span class="mono">01</span><h3><span class="en">Team partner</span><span class="id">Mitra tim</span></h3><ul>
+          <li><span class="en">Jersey and apparel branding</span><span class="id">Logo pada jersey dan apparel</span></li><li><span class="en">Player content</span><span class="id">Konten pemain</span></li><li><span class="en">Match-day posts</span><span class="id">Unggahan hari pertandingan</span></li></ul></article>
+        <article class="way" style="--d:1"><span class="mono">02</span><h3><span class="en">Tournament partner</span><span class="id">Mitra turnamen</span></h3><ul>
+          <li><span class="en">Direbattle naming or presenting rights</span><span class="id">Hak penamaan atau presenting Direbattle</span></li><li><span class="en">Broadcast segments and overlays</span><span class="id">Segmen dan overlay siaran</span></li><li><span class="en">Prize pool support</span><span class="id">Dukungan total hadiah</span></li></ul></article>
+        <article class="way" style="--d:2"><span class="mono">03</span><h3><span class="en">Content partner</span><span class="id">Mitra konten</span></h3><ul>
+          <li><span class="en">Branded YouTube series</span><span class="id">Seri YouTube bermerek</span></li><li><span class="en">Short-form content integrations</span><span class="id">Integrasi konten video pendek</span></li><li><span class="en">Product reviews by our players</span><span class="id">Ulasan produk oleh pemain kami</span></li></ul></article>
         <article class="way" style="--d:3"><span class="mono">04</span><h3><span class="en">Product &amp; barter</span><span class="id">Produk &amp; barter</span></h3><ul>
-          <li><span class="en">Gear for the team and studio</span><span class="id">Gear untuk tim dan studio</span></li><li><span class="en">Prizes for Direbattle winners</span><span class="id">Hadiah untuk pemenang Direbattle</span></li><li><span class="en">Offline activation support</span><span class="id">Dukungan aktivasi offline</span></li></ul></article>
+          <li><span class="en">Equipment for the team and studio</span><span class="id">Perlengkapan untuk tim dan studio</span></li><li><span class="en">Prizes for Direbattle winners</span><span class="id">Hadiah untuk pemenang Direbattle</span></li><li><span class="en">Support for offline activations</span><span class="id">Dukungan aktivasi offline</span></li></ul></article>
       </div>
     </div>
   </div>
@@ -1202,9 +1202,9 @@ tbody tr:hover{background:rgba(239,232,227,.05)}
   <canvas class="lines" data-lines></canvas>
   <div class="st">
     <img class="chmark" data-vt="mark" src="assets/mark.webp" alt="" aria-hidden="true">
-    <span class="eyebrow mono rv" data-vt="eyebrow"><span class="en">Let's talk</span><span class="id">Mari ngobrol</span></span>
+    <span class="eyebrow mono rv" data-vt="eyebrow"><span class="en">Get in touch</span><span class="id">Hubungi kami</span></span>
     <div class="body">
-      <h2 data-vt="title"><span class="en">Let's build the next chapter together.</span><span class="id">Mari bangun babak berikutnya bersama.</span></h2>
+      <h2 data-vt="title"><span class="en">Let's build the next chapter together.</span><span class="id">Mari bersama membangun babak berikutnya.</span></h2>
       <div class="contact rv" style="--d:3">
         <div><span class="mono">Web</span><b><a class="weblink" href="https://www.direborn.team/" target="_blank" rel="noopener">direborn.team</a></b></div>
       </div>
@@ -1380,10 +1380,10 @@ void main(){
   }
 
   /* ---------- slide navigator ---------- */
-  const NAMES={cover:['Cover','Sampul'],manifesto:['Manifesto','Manifesto'],who:['Who we are','Siapa kami'],engines:['Two engines','Dua mesin'],
+  const NAMES={cover:['Cover','Sampul'],manifesto:['Manifesto','Manifesto'],who:['Who we are','Tentang kami'],engines:['Two engines','Dua mesin'],
     roster:['Roster','Roster'],record:['Track record','Rekam jejak'],direbattle:['Direbattle','Direbattle'],circuit:['Pro Circuit','Pro Circuit'],
-    events:["What we've run",'Event kami'],cup:['Direbattle Cup','Direbattle Cup'],broadcast:['Broadcast','Siaran'],uprising:['Uprising','Uprising'],reach:['Audience','Audiens'],
-    content:['Our content','Konten kami'],production:['Production','Produksi'],roadmap:['Roadmap','Arah kami'],partner:['Partner with us','Kerja sama'],contact:['Contact','Kontak']};
+    events:['Events','Turnamen kami'],cup:['Direbattle Cup','Direbattle Cup'],broadcast:['On air','Siaran kami'],uprising:['Uprising','Uprising'],reach:['Audience','Audiens'],
+    content:['Our content','Konten kami'],production:['Production','Produksi'],roadmap:['Roadmap','Peta jalan'],partner:['Partner with us','Kerja sama'],contact:['Contact','Kontak']};
   const strip=$('#navstrip'), list=$('#nsList'), menu=$('#menu');
   slides.forEach((sl,k)=>{
     const b=document.createElement('button'); b.type='button'; b.className='ns-item';
@@ -1402,8 +1402,8 @@ void main(){
      Fill each list with real results only: {p:'1st', e:'Tournament name', y:'2024'}. Empty lists show nothing. */
   const ACH={
     'Dreamocel':[],
-    'woMy':[],
-    'PotaT2':[],
+    'womy':[],
+    'Pota2':[],
     'db-':[],
     'dalul':[]
   };

@@ -47,9 +47,10 @@ reach, content, production, roadmap, partner, contact
 
 ## Decisions already made by the owner (keep these)
 
-- Player IDs, exact spelling: Dreamocel, woMy, PotaT2, db-, dalul.
+- Player IDs and real names (owner correction, 13 Nov 2026): Dreamocel (Randy Muhammad Sapoetra), womy
+  (Said Muhammad Resky), Pota2 (Noel Pinot Prando Lafduti Malau), db- (Daud Budiawan), dalul (Abdalla Putra Afemi).
   Player photos (updated 11 Nov 2026, all standing with arms crossed) are named after the player:
-  `dreamocel.webp`, `womy.webp`, `potat2.webp`, `db.webp` (db-, short hair, rectangular glasses),
+  `dreamocel.webp`, `womy.webp`, `potat2.webp` (Pota2), `db.webp` (db-, short hair, rectangular glasses),
   `dalul.webp` (dalul, wavy hair, round glasses). Framing per card via `--h/--x/--y`.
 - Write **Direbattle** as one word everywhere (never split into "Dire Battle").
 - No company name (PT Prosperity Unggul Abadi) on the slides for now.
@@ -64,11 +65,15 @@ reach, content, production, roadmap, partner, contact
 - "Delayed player cams" was removed from the production slide.
 - Hovering near the next/prev buttons must not open the slide navigator.
 - Data must be exact and unchanged; highlight a stat only when it is genuinely notable.
+- Copy: EN is formal but natural (American spelling); ID is formal, consistent and accurate (e.g. "Juara" for
+  Grand Champion, "Acara" / "Total Hadiah" / "Tema" for Event / Prize pool / Theme).
+- Roadmap stage labels: Now, Next, Mid-term, Long-term, Vision (ID: Sekarang, Berikutnya, Jangka menengah,
+  Jangka panjang, Visi). The roadmap line is one solid red, with the black gaps between cards kept as separators.
 - Whiteboard "brand vision" numbers are old and must not be used (its roadmap steps are fine).
 
 ## Broadcast slide
 
-- `broadcast` (after `cup`): Direbattle broadcast segments. Match & panel (live draft overlay), Kuis Kematian
+- `broadcast` (after `cup`): Direbattle broadcast segments. Match & panel (live draft overlay), Quiz Kematian
   (questions drawn from a fishbowl, panelist must answer), Tebak Skill (spin-the-wheel guessing game),
   Tier List Kuliner Kota Bandung (hosted by a Dedi Mulyadi parody character; panelists taste and rank S to C).
   Images `assets/bc-*.webp` are the owner's broadcast screenshots; tiles open in the lightbox.
@@ -90,9 +95,7 @@ reach, content, production, roadmap, partner, contact
 - Mix Series: 8 teams, champion Faceless Void. Showdown 1v1 Mid: 8 entrants (owner, 10 Nov 2026).
 - Roster hover: each player card can show a "Career highlights" panel (top 5 results) on hover/focus/tap.
   Data lives in the `ACH` object in the script ({p, e, y}); **all lists are empty until the owner supplies verified
-  results**, and an empty list shows nothing. Esports Earnings blocks automated reading. Note: Esports Earnings lists
-  full names Randy Muhammad Sapoetra, Syaid Muhammad Resky (woMy), Noel Pinot Prando Lafduti Malau (PotaT2);
-  the deck shows Randy Sapoetra, Said Romy, Noel Pinot (owner-supplied) — confirm with owner before changing.
+  results**, and an empty list shows nothing. Esports Earnings blocks automated reading.
 - Not on slides yet: player roles, follower counts per platform, audience demographics.
 - Motion and audio have been syntax-checked and screenshot-tested (1440x810, iPhone 13 390x844, 844x390 landscape,
   820x1180 tablet) but not watched or heard on a real device.
